@@ -99,9 +99,7 @@
 
 
 <br/><br/>
-<footer class="container-fluid text-center">
-  <p>All Rights Reserved - 2017 - Leonilson Lopes</p>    
-</footer>
+<?php include 'footer.php';?>
 
 <form action="reviewPage.php" method="post" id="sendContent" >
 	<input id="sessionInfo" name="sessionInfo" type="text" style="display: none" value="teste"/>

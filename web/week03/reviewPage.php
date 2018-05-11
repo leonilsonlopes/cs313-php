@@ -89,9 +89,7 @@
 
 
 <br/><br/>
-<footer class="container-fluid text-center">
-  <p>All Rights Reserved - 2017 - Leonilson Lopes</p>    
-</footer>
+<?php include 'footer.php';?>
 
 </body>
 </html>

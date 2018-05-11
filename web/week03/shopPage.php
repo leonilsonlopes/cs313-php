@@ -1,22 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>LL Library Online Store</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="basicStyle.css"><!-- External style --> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="functions.js"></script>
-  <script src="json2.js"></script>
-  <style>
-    /* Remove the jumbotron's default bottom margin */ 
-     .jumbotron {
-      margin-bottom: 0;
-    }
-  </style>
-</head>
+
+<?php include 'header.php';?>
+
 <body onload="initialLoad()">
 
 <div class="jumbotron">

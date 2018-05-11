@@ -95,6 +95,7 @@ function signUpSaveData(){
 		sessionStorage.taxes = 0;
 		sessionStorage.totalPayableAfterTaxes = 0;
 	
+		alert("aqui!!!");
 		
 		document.getElementById("successMessage").innerHTML = " &nbsp;&nbsp;You are ready to shop!";
 		setVisibility("signUpSuccessMessage","visible");

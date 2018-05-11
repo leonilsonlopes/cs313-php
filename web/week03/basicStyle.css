@@ -1,0 +1,117 @@
+/*Custom Fonts*/
+@font-face { font-family: AnaktoriaRegular; src: url('fonts/AnaktoriaRegular.ttf'); }
+@font-face { font-family: DotriceBold; src: url('fonts/DotriceBold.otf'); }
+@font-face { font-family: DotriceRegular; src: url('fonts/DotriceRegular.otf'); }
+@font-face { font-family: Carlito; src: url('fonts/Carlito-Regular.ttf'); }
+@font-face { font-family: Lato; src: url('fonts/Lato-400.woff2'); }
+
+/* Background and borders and colours */
+.jumbotron > div > p {
+	background: white;
+	font-family: AnaktoriaRegular;
+	font-size: xx-large;	
+}
+
+.jumbotron { 
+	background-image: url(img/background.jpg);
+}
+
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+  margin-bottom: 50px;
+  border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+
+body { 
+  font-size: 20px; 
+  margin: 0 120px; 
+  padding-left: 20px; 
+  padding-right: 20px; 
+  overflow-x: hidden; 
+}
+
+img {
+  max-width:100%;
+  max-height:100%;
+}
+
+#upper-menu {
+  display: flex;
+  margin-right: 20px;
+  justify-content: flex-end; 
+  align-items: center;
+  height: 40%;  
+}
+
+#signin {
+  margin-right: 20px;
+}
+
+#upper-title { 
+  font-family: DotriceRegular;
+  background-color: white;
+  text-align: center;  
+  padding: 20px;
+}
+
+.container-fluid p{
+  font-family: Lato;	
+}
+
+
+.messagePanel {
+	visibility: hidden;
+	text-align: center;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+
+.centralPannels > p {
+	font-family: AnaktoriaRegular;
+	font-size: x-large;
+	text-align: center;
+}
+
+.quantity{
+	width: 10%;
+	height: 30px;
+	font-weight: bold;
+	vertical-align: middle;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.panel-footer > button{
+	border-radius:5px;
+	text-align: center;
+}
+
+.panel-footer p {
+  font-family: Lato;
+  font-size: large;
+}
+
+.price{
+	font-size: large;
+	font-weight: bold;
+}
+
+h1, h2, h3, h1, h4 > p, h2 > p, h3 > p, h4 > p {
+  font-family: Lato;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
+
+

@@ -440,10 +440,10 @@ function validateAddress(address){
 function validateAll(){
 	var name = validateName(document.getElementById("name").value);
 	var address = validateAddress(document.getElementById("address").value);
-	var cc = validateCard(document.getElementById("ccNumber").value);
-	var cardDate = validateCardDate(document.getElementById("expDate").value);
+	//var cc = validateCard(document.getElementById("ccNumber").value);
+	//var cardDate = validateCardDate(document.getElementById("expDate").value);
 	
-	if(!name || !address || !cc || !cardDate){
+	if(!name || !address) //|| !cc || !cardDate){
 		setVisibility("signUpFailedMessage","visible");
 	}else{
 		setVisibility("signUpFailedMessage","hidden");

@@ -31,11 +31,11 @@
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="shopPage.html">Store</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="shopPage.php">Store</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signUpPage.html"><span class="glyphicon glyphicon-user"></span> <span id="userNamePanel"></span></a></li>
+        <li><a href="signUpPage.php"><span class="glyphicon glyphicon-user"></span> <span id="userNamePanel"></span></a></li>
         <li><a style="cursor:pointer;" onclick="submitForm()"><span class="glyphicon glyphicon-shopping-cart"></span> Cart <span id="cartSize"></span></a></li>
       </ul>
     </div>
@@ -50,13 +50,13 @@
       <br/>
 	  <p><a class="link">Dante Alighieri</a></p>
 			<br/><br/>
-	  <p><a class="link" href="shopPage.html">Shakespeare</a></p>
+	  <p><a class="link" href="shopPage.php">Shakespeare</a></p>
 			<br/><br/>
-	  <p><a class="link" href="shopPage.html">Machado de Assis</a></p>
+	  <p><a class="link" href="shopPage.php">Machado de Assis</a></p>
 			<br/><br/>
-	  <p><a class="link" href="shopPage.html">Greek Classics</a></p>
+	  <p><a class="link" href="shopPage.php">Greek Classics</a></p>
 			<br/><br/>
-	  <p><a class="link" href="shopPage.html">and more...</a></p>
+	  <p><a class="link" href="shopPage.php">and more...</a></p>
 	</div>
 	</div>
     <div class="col-lg-2">
@@ -120,7 +120,7 @@
 			<br/><br/>
 			<p><a class="link" href="https://pt.kobobooks.com/?utm_source=Kobo&utm_medium=TopNav&utm_campaign=All" target="_blank">Kobo eReader</a></p>
 			<br/><br/>
-			<p><a class="link" href="http://books.google.es/intl/es/help/ebooks/ereader.html" target="_blank">Google eReader</a></p>
+			<p><a class="link" href="http://books.google.es/intl/es/help/ebooks/ereader.php" target="_blank">Google eReader</a></p>
 			<br/><br/>
 			<p><a class="link" href="https://www.barnesandnoble.com/w/piper-barnes-noble/1122314015?ean=9781400697564" target="_blank">Barnes & Noble Nook eReader</a></p>
 		</div>

@@ -10,12 +10,12 @@ function initialLoad(){
 	setUserNamePanel();
 	updateCartValues();
 	
-	if(getFileName() == "shopPage.html"){
+	if(getFileName() == "shopPage.php"){
 		updateProductQuantities();
 	}
 	
 	
-	if(getFileName() == "signUpPage.html"){
+	if(getFileName() == "signUpPage.php"){
 		if(!isNull(sessionStorage.name))
 			document.getElementById("name").value = sessionStorage.name;
 		
@@ -103,7 +103,7 @@ function signUpSaveData(){
 		
 		updateCartValues();
 
-		//window.location.href = "shopPage.html";
+		//window.location.href = "shopPage.php";
        
     } else { 
 		document.getElementById("successMessage").innerHTML = " Your browser is too old for this website! Please upgrade it!";
@@ -234,7 +234,7 @@ function addToCart(productCode){
 		document.getElementById("itemAddedToCart").innerHTML = shopItem.productName + " added in shopping cart."
 	
 	}else{
-		window.location.href = "signUpPage.html";
+		window.location.href = "signUpPage.php";
 	}
 	
 	

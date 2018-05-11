@@ -35,11 +35,11 @@
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="shopPage.html">Store</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="shopPage.php">Store</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signUpPage.html"><span class="glyphicon glyphicon-user"></span> <span id="userNamePanel"></span></a></li>
+        <li><a href="signUpPage.php"><span class="glyphicon glyphicon-user"></span> <span id="userNamePanel"></span></a></li>
         <li><a href="checkOutPage.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart <span id="cartSize"></span></a></li>
       </ul>
     </div>
@@ -83,7 +83,7 @@
 	<div class="col-lg-1">
 	</div>
 	<div class="col-lg-10">
-		<p>To remove or add item into your shopping cart, please return to the <a href="shopPage.html">store</a>.</p>
+		<p>To remove or add item into your shopping cart, please return to the <a href="shopPage.php">store</a>.</p>
 		</br>
 		<!--<p>To empty your cart, click here: <a onclick="clearCart()" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#clearCart"><span class="glyphicon glyphicon-trash"></span></span> Clear cart!</a></p>
 		</br>-->

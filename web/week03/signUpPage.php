@@ -33,11 +33,11 @@
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="shopPage.html">Store</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="shopPage.php">Store</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signUpPage.html"><span class="glyphicon glyphicon-user"></span> <span id="userNamePanel"></span></a></li>
+        <li><a href="signUpPage.php"><span class="glyphicon glyphicon-user"></span> <span id="userNamePanel"></span></a></li>
         <li><a href="checkOutPage.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart <span id="cartSize"></span></a></li>
       </ul>
     </div>

@@ -88,7 +88,7 @@
 				</div>
 								
 				<div class="form-group">					
-					<input type="button" class="btn btn-info" value="Save Data" onclick="signUpSaveData()" data-toggle="modal" data-target="#signUpSuccess>
+					<input type="button" class="btn btn-info" value="Save Data" onclick="signUpSaveData()" data-toggle="modal" data-target="#signUpSuccess">
 				</div>
 				<div class="messagePanel" id="signUpSuccessMessage">
 					<div class="alert alert-success">

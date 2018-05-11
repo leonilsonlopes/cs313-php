@@ -80,8 +80,8 @@ function updateProductQuantities(){
 //Save user data in signUp page
 function signUpSaveData(){
 
-	if(document.getElementById("signUpFailedMessage").style.visibility == "visible")
-		return;
+	//if(document.getElementById("signUpFailedMessage").style.visibility == "visible")
+		//return;
 	
 	
     if(typeof(Storage) !== "undefined") {
@@ -96,8 +96,8 @@ function signUpSaveData(){
 		sessionStorage.totalPayableAfterTaxes = 0;
 	
 				
-		document.getElementById("successMessage").innerHTML = " &nbsp;&nbsp;You are ready to shop!";
-		setVisibility("signUpSuccessMessage","visible");
+		//document.getElementById("successMessage").innerHTML = " &nbsp;&nbsp;You are ready to shop!";
+		//setVisibility("signUpSuccessMessage","visible");
 		
 		setUserNamePanel(sessionStorage.name);
 		
@@ -106,8 +106,8 @@ function signUpSaveData(){
 		//window.location.href = "shopPage.php";
        
     } else { 
-		document.getElementById("successMessage").innerHTML = " Your browser is too old for this website! Please upgrade it!";
-        setVisibility("signUpFailedMessage","visible");
+		document.getElementById("saveMessage").innerHTML = " Your browser is too old for this website! Please upgrade it!";
+        //setVisibility("signUpFailedMessage","visible");
    }
 	
 	

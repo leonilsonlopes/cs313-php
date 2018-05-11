@@ -440,9 +440,10 @@ function validateAll(){
 	//var cc = validateCard(document.getElementById("ccNumber").value);
 	//var cardDate = validateCardDate(document.getElementById("expDate").value);
 	
-	if(!name || !address /*|| !cc || !cardDate*/){
-		setVisibility("signUpFailedMessage","visible");
-	}else{
-		setVisibility("signUpFailedMessage","hidden");
-	}
+	//if(!name || !address /*|| !cc || !cardDate*/){
+		//setVisibility("signUpFailedMessage","visible");
+	//}else{
+		//setVisibility("signUpFailedMessage","hidden");
+	//}
 }
+

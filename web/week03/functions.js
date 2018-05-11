@@ -417,8 +417,7 @@ function validateName(name){
 		//setVisibility("signUpFailedMessage","hidden");
 		return true;
 	}else{
-		document.getElementById("failedMessage").innerHTML = " Wrong name format. Please enter at least first and last name.";
-		setVisibility("signUpFailedMessage","visible");
+		document.getElementById("saveMessage").innerHTML = " Wrong name format. Please enter at least first and last name.";
 		return false;
 	}
 }
@@ -426,8 +425,7 @@ function validateName(name){
 //Validate address
 function validateAddress(address){
 	if(isNull(address)){
-		document.getElementById("failedMessage").innerHTML = " You need an address. Please fill up.";
-		setVisibility("signUpFailedMessage","visible");
+		document.getElementById("saveMessage").innerHTML = " You need an address. Please fill up.";		
 		return false;
 	}else{
 		//setVisibility("signUpFailedMessage","hidden");

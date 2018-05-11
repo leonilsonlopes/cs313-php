@@ -88,8 +88,8 @@ function signUpSaveData(){
         sessionStorage.name = document.getElementById("name").value;
 		sessionStorage.address = document.getElementById("address").value;
 		sessionStorage.phone = document.getElementById("phone").value;
-		sessionStorage.ccNumber = document.getElementById("ccNumber").value;
-		sessionStorage.ccExpDate = document.getElementById("expDate").value;
+		//sessionStorage.ccNumber = document.getElementById("ccNumber").value;
+		//sessionStorage.ccExpDate = document.getElementById("expDate").value;
 		sessionStorage.cart = JSON.stringify(new Array());
 		sessionStorage.totalPayable = 0;
 		sessionStorage.taxes = 0;

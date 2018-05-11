@@ -52,7 +52,7 @@
 					<input type="text" class="form-control" id="phone">
 				</div>
 				</br>
-				
+				<!--
 				<h3>Payment Information</h3>
 				<div class="form-group">
 					<label class="radio-inline"><input type="radio" name="optradio" id="amexType" onclick="validateAll();">American Express</label>
@@ -67,7 +67,7 @@
 					<label for="expDate" >Expiration Date (MM/YY):</label>
 					<input type="text" class="form-control" id="expDate" onblur="validateAll();" onkeyup="validateAll();">
 				</div>
-				
+				-->
 				
 				<div class="form-group">					
 					<input type="button" class="btn btn-info" value="Save Data" onclick="signUpSaveData()">

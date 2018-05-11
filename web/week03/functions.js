@@ -411,9 +411,8 @@ function validateCardDate(date){
 }
 
 //Validate Name
-function validateName(name){
-	var pattern = /.*\w.*\s.*\w.*/;
-	if(name.match(pattern)){
+function validateName(name){	
+	if(isNull(name)){
 		//setVisibility("signUpFailedMessage","hidden");
 		return true;
 	}else{

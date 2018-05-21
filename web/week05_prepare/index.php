@@ -32,6 +32,6 @@ echo '<p> ------------------- </p>';
 
 $statement = $db->query('SELECT username, password FROM note_user');
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-echo '<p>' . $results . '</p>';
+echo '<p>' . print_r($results) . '</p>';
 
 ?>

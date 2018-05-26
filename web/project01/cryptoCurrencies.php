@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<?php include 'databaseConnections.php' ?>;
+	
 	<?php include 'header.php';?>
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
@@ -16,7 +16,7 @@
 		</div>
 	
 
-	
+	<?php include 'databaseConnections.php' ?>;
 	<!-- CLOSE CONTENT AREA -->	
 	
 	</div>	

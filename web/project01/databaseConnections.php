@@ -1,6 +1,18 @@
 <?php
 
-echo "<table class=\"table\">
+echo "<div class=\"form-group\">
+  <label for=\"code\">Coin Code:</label>
+  <input type=\"text\" class=\"form-control\" id=\"code\">
+</div>
+<div class=\"form-group\">
+  <label for=\"name\">Coin Name:</label>
+  <input type=\"text\" class=\"form-control\" id=\"name\">
+</div>
+
+
+<br/>
+<br/>
+<table class=\"table\">
   <thead>
     <tr>
       <th scope=\"col\">#</th>

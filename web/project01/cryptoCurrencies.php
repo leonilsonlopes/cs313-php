@@ -16,7 +16,6 @@
 		</div>
 	
 
-	<?php getCurrenciesList() ?>;
 	
 	<!-- CLOSE CONTENT AREA -->	
 	

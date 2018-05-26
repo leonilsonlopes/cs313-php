@@ -8,6 +8,8 @@ echo "<div class=\"form-group\">
   <label for=\"name\">Coin Name:</label>
   <input type=\"text\" class=\"form-control\" id=\"name\">
 </div>
+<br/>
+<button type=\"button\" class=\"btn btn-primary\">Save Coin</button>
 
 
 <br/>

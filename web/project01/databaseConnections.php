@@ -13,6 +13,13 @@ catch (PDOException $ex)
   die();
 }
 
+	$stmt = $db->prepare('SELECT * FROM currency');
+	$stmt->execute();
+	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	
+echo $rows;
+
+
 function getCurrenciesList(){
 	
 	$stmt = $db->prepare('SELECT * FROM currency');

@@ -13,14 +13,26 @@ catch (PDOException $ex)
   die();
 }
 
-	$stmt = $db->query('SELECT * FROM currency');
-	//$stmt->execute();
-	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	
-echo "<p>" . $rows . "</p>";
+foreach ($db->query('SELECT * FROM currency') as $row)
+{
+  echo 'user: ' . $row['username'];
+  echo ' password: ' . $row['password'];
+  echo '<br/>';
+}
 
+echo '<p> ------------------- </p>';
 
+$statement = $db->query('SELECT username, password FROM note_user');
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+{
+  echo 'user: ' . $row['username'] . ' password: ' . $row['password'] . '<br/>';
+}
 
+echo '<p> ------------------- </p>';
+
+$statement = $db->query('SELECT username, password FROM note_user');
+$results = $statement->fetchAll(PDO::FETCH_ASSOC);
+echo '<p>' . print_r($results) . '</p>';
 
 
 ?>

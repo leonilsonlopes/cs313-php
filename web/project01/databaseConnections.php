@@ -15,24 +15,14 @@ catch (PDOException $ex)
 
 foreach ($db->query('SELECT * FROM currency') as $row)
 {
-  echo 'user: ' . $row['username'];
-  echo ' password: ' . $row['password'];
+  echo 'code: ' . $row['code'];
+  echo ' name: ' . $row['name'];
   echo '<br/>';
 }
 
 echo '<p> ------------------- </p>';
 
-$statement = $db->query('SELECT username, password FROM note_user');
-while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-{
-  echo 'user: ' . $row['username'] . ' password: ' . $row['password'] . '<br/>';
-}
 
-echo '<p> ------------------- </p>';
-
-$statement = $db->query('SELECT username, password FROM note_user');
-$results = $statement->fetchAll(PDO::FETCH_ASSOC);
-echo '<p>' . print_r($results) . '</p>';
 
 
 ?>

@@ -17,19 +17,10 @@ catch (PDOException $ex)
 	$stmt->execute();
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	
-echo $rows;
+echo "<p>" . $rows . "</p>";
 
 
-function getCurrenciesList(){
-	
-	$stmt = $db->prepare('SELECT * FROM currency');
-	$stmt->execute();
-	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	
-echo $rows;
-	
-	return $rows;
-}
+
 
 
 ?>

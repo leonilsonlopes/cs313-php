@@ -13,7 +13,7 @@ echo "<head>
   <link href=\"vendor/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
   <!-- Custom styles for this template-->
   <link href=\"css/sb-admin.css\" rel=\"stylesheet\">
-  <link href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\" type=\"text/css\">
+  <link href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\" rel=\"stylesheet\ type=\"text/css\">
   
   	<script>
 $(document).ready(function() {

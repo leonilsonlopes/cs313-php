@@ -6,10 +6,10 @@
 		<!-- START CUSTOM HEAD AREA -->
 	
 		<script type=\"text/javascript\" class=\"init\">
-	
+	alert("test2!!!");
 
 $(document).ready(function() {
-	alert("test2!!!");
+	
 	var table = $('#currencies').DataTable();
 
 	$('#currencies').on( 'click', 'tbody tr', function () {

@@ -14,14 +14,6 @@ function get_db() {
 		$dbPassword = $dbopts["pass"];
 		$dbName = ltrim($dbopts["path"],'/');
 		
-		echo "<p><h3>dbUrl: " . $dbUrl . "</h3></p>"; 
-		echo "<p><h3>dbopts: " . $dbopts[0] . "</h3></p>"; 
-		echo "<p><h3>dbHost: " . $dbHost . "</h3></p>"; 
-		echo "<p><h3>dbPort: " . $dbPort . "</h3></p>"; 
-		echo "<p><h3>dbUser: " . $dbUser . "</h3></p>"; 
-		echo "<p><h3>dbPassword: " . $dbPassword . "</h3></p>"; 
-		echo "<p><h3>dbName: " . $dbName . "</h3></p>"; 
-		
 		// Create the PDO connection
 		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
@@ -37,3 +29,4 @@ function get_db() {
 	}
 	return $db;
 }
+?>

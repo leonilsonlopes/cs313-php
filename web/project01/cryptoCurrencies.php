@@ -5,10 +5,9 @@
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
-	<?php include 'dbConnect.php';?>
+
 	<!-- START CONTENT AREA -->
-
-
+	  
 		<div class="container">
 			<h2>Crypto Currencies</h2>
 			<div class="panel panel-default">
@@ -16,44 +15,8 @@
 			</div>
 		</div>
 	
-		<div class=\"form-group\">
-			<label for=\"code\">Coin Code:</label>
-			<input type=\"text\" class=\"form-control\" id=\"code\">
-		</div>
-		<div class=\"form-group\">
-			<label for=\"name\">Coin Name:</label>
-			<input type=\"text\" class=\"form-control\" id=\"name\">
-		</div>
-		<button type=\"button\" class=\"btn btn-primary\">Save Coin</button>
-		<br/>
-		<br/>
-		<p><h3><b>Saved Coins:</b></h3></p>
-		<table class=\"table\">
-			<thead>
-				<tr>
-				<th scope=\"col\">#</th>
-				<th scope=\"col\">Coin Code</th>
-				<th scope=\"col\">Coin Name</th>
-				</tr>
-			</thead>
-			<tbody>
 
-		<!-- Retrieve Data -->	
-		<?php 
-			$db = get_db();
-			foreach ($db->query('SELECT * FROM currency') as $row){
-				echo '<tr>
-				<th scope=\"row\">' . $row['id'] . '</th>
-				<td>' . $row['code'] . '</td>
-				<td>' . $row['name'] . '</td>
-				</tr>';
-			} 
-		?>;
-			</tbody>
-		</table>
-		
-	
-	
+	<?php include 'databaseConnections.php' ?>;
 	<!-- CLOSE CONTENT AREA -->	
 	
 	</div>	

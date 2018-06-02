@@ -9,6 +9,7 @@
 	
 
 $(document).ready(function() {
+	alert("test2!!!");
 	var table = $('#currencies').DataTable();
 
 	$('#currencies').on( 'click', 'tbody tr', function () {

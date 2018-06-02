@@ -2,6 +2,35 @@
 <html lang="en">
 
 	<?php include 'header.php';?>
+	
+		<!-- START CUSTOM HEAD AREA -->
+	
+		<script type=\"text/javascript\" class=\"init\">
+	
+
+$(document).ready(function() {
+	var table = $('#currencies').DataTable();
+
+	$('#currencies tbody').on( 'click', 'tr', function () {
+		if ( $(this).hasClass('selected') ) {
+			$(this).removeClass('selected');
+		}
+		else {
+			table.$('tr.selected').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	} );
+
+	$('#button').click( function () {
+		table.row('.selected').remove().draw( false );
+	} );
+} );
+
+
+	</script>
+	
+	<!-- CLOSE CUSTOM HEAD AREA -->
+	
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>

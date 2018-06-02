@@ -7,32 +7,17 @@ echo "<head>
   <meta name=\"author\" content=\"\">
   <title>CS313 - Project01 - Crypto Trader</title>
   <!-- Bootstrap core CSS-->
-  <script src=\"https://code.jquery.com/jquery-3.3.1.js\"></script>
-  <script src=\"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js\"></script>
+  <script type=\"text/javascript\" language=\"javascript\" src=\"https://code.jquery.com/jquery-3.3.1.js\"></script>
+  <script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js\"></script>
   <link href=\"vendor/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
   <!-- Custom fonts for this template-->
   <link href=\"vendor/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
   <!-- Custom styles for this template-->
   <link href=\"css/sb-admin.css\" rel=\"stylesheet\">
-  <link href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\" rel=\"stylesheet\ type=\"text/css\">
+  <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\">
   
-  	<script>
-$(document).ready(function() {
-    var table = $('#currencies').DataTable();
- 
-    $('#currencies tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );
- 
-} );
-	</script>
+
 
   
-</head>";
+
 ?>

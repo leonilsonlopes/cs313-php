@@ -13,5 +13,17 @@ echo "<head>
   <link href=\"vendor/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
   <!-- Custom styles for this template-->
   <link href=\"css/sb-admin.css\" rel=\"stylesheet\">
+  
+  	<script>
+	$('#currencies').on('click', 'tbody tr', function(event) {
+  $(this).addClass('highlight').siblings().removeClass('highlight');
+});
+	</script>
+	<style>
+	.table tbody tr.highlight td {
+  background-color: #ddd;
+}
+	</style>
+  
 </head>";
 ?>

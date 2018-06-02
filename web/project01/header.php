@@ -13,11 +13,23 @@ echo "<head>
   <link href=\"vendor/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
   <!-- Custom styles for this template-->
   <link href=\"css/sb-admin.css\" rel=\"stylesheet\">
+  <link href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\" type=\"text/css\">
   
   	<script>
-	$('#currencies').on('click', 'tbody tr', function(event) {
-  $(this).addClass('highlight').siblings().removeClass('highlight');
-});
+$(document).ready(function() {
+    var table = $('#currencies').DataTable();
+ 
+    $('#currencies tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+ 
+} );
 	</script>
 	<style>
 	.table tbody tr.highlight td {

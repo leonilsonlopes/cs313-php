@@ -16,15 +16,19 @@
 			</div>
 		</div>
 	
-		<div class="form-group">
-			<label for="code">Coin Code:</label>
-			<input type="text" class="form-control" id="code">
-		</div>
-		<div class="form-group">
-			<label for="name">Coin Name:</label>
-			<input type="text" class="form-control" id="name">
-		</div>
-		<button type="button" class="btn btn-primary">Save Coin</button>
+		<form action="cryptoCurrencies.php" method="post">
+			<div class="form-group">
+				<label for="code">Coin Code:</label>
+				<input type="text" class="form-control" id="code">
+			</div>
+			<div class="form-group">
+				<label for="name">Coin Name:</label>
+				<input type="text" class="form-control" id="name">
+			</div>
+			<input type="submit"><button type="button" class="btn btn-primary">Save Coin</button></input>
+		</form>
+		
+		
 		<br/>
 		<br/>
 		<p><h3><b>Saved Coins:</b></h3></p>

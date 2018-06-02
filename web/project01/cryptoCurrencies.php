@@ -13,7 +13,6 @@ $(document).ready(function() {
 	var table = $('#currencies').DataTable();
 
 	$('#currencies').on( 'click', 'tbody tr', function () {
-		alert("test!!!");
 		if ( $(this).hasClass('selected') ) {
 			$(this).removeClass('selected');
 		}

@@ -61,7 +61,7 @@
 		<br/>
 		<br/>
 		<p><h3><b>Saved Coins:</b></h3></p>
-		<table id="currencies" class="table table-hover table-bordered" style="width:100%">
+		<table id="currencies" class="table table-hover table-stripped table-bordered" style="width:100%">
 			<thead>
 				<tr>
 				<th scope="col">#</th>

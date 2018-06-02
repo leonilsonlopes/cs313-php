@@ -5,8 +5,8 @@
 	
 		<!-- START CUSTOM HEAD AREA -->
 	
-		<script type=\"text/javascript\" class=\"init\">
-	alert("test2!!!");
+		<script type="text/javascript" class="init">
+
 
 $(document).ready(function() {
 	

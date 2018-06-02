@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php include 'header.php';?>
+	
+			<script type="text/javascript" class="init">
+	alert("test2!!!");
+
+
+	</script>
+	
+	
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>

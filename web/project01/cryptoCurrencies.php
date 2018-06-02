@@ -43,6 +43,7 @@
 				$statement->bindValue(':coinName', $coinName);
 	
 				$statement->execute();
+			}
 			catch (Exception $ex)
 			{				
 				echo "Error with DB. Details: $ex";

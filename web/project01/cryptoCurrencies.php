@@ -21,7 +21,7 @@ $(document).ready(function() {
 			$(this).addClass('selected');
 		}
 		
-		alert(table.row( this ).data());
+		document.getElementById("code").value = table.row( this ).data()[1]);
 	} );
 
 
@@ -49,11 +49,11 @@ $(document).ready(function() {
 		<form action="cryptoCurrencies.php" method="post">
 			<div class="form-group">
 				<label for="code">Coin Code:</label>
-				<input type="text" class="form-control" name="code">
+				<input type="text" class="form-control" id="code" name="code">
 			</div>
 			<div class="form-group">
 				<label for="name">Coin Name:</label>
-				<input type="text" class="form-control" name="name">
+				<input type="text" class="form-control" id="name" name="name">
 			</div>
 			<input type="hidden" name="clicked" value="1">
 			<button type="submit" class="btn btn-primary">Save Coin</button>

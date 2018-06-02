@@ -24,6 +24,8 @@ echo "<div class=\"form-group\">
     </tr>
   </thead>
   <tbody>";
+  
+echo  '<p><h3>' . getenv('DATABASE_URL') . '</h3></p>';
 
 try
 {

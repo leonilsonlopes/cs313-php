@@ -80,21 +80,22 @@ $(document).ready(function() {
 					// Again, first prepare the statement
 					if($_POST["btnSaveCoin"] == "addCoin"){
 						$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+						$statement->bindValue(':coinCode', $coinCode);
+						$statement->bindValue(':coinName', $coinName);
 					}
 					
 					if($_POST["btnUpdateCoin"] == "updateCoin"){
 						$statement = $db->prepare('UPDATE currency SET code=:coinCode, name=:coinName WHERE id = :coinID');
+						$statement->bindValue(':coinID', $coinID);
+						$statement->bindValue(':coinCode', $coinCode);
+						$statement->bindValue(':coinName', $coinName);
 					}
 					
 					if($_POST["btnDeleteCoin"] == "deleteCoin"){
 						$statement = $db->prepare('DELETE FROM currency WHERE id = :coinID');
-					}
-		
-					// Then, bind the values
-					$statement->bindValue(':coinID', $coinID);
-					$statement->bindValue(':coinCode', $coinCode);
-					$statement->bindValue(':coinName', $coinName);
-		
+						$statement->bindValue(':coinID', $coinID);
+					}		
+							
 					$statement->execute();
 				}
 			}

@@ -16,7 +16,7 @@
 			</div>
 		</div>
 	
-		<form action="test.php" method="post">
+		<form action="cryptoCurrencies.php" method="post">
 			<div class="form-group">
 				<label for="code">Coin Code:</label>
 				<input type="text" class="form-control" name="code">
@@ -28,7 +28,7 @@
 			<button type="submit" class="btn btn-primary">Save Coin</button>
 		</form>
 		
-		<?php echo "<p><h3>" . $_POST["code"] . "</h3></p>"; ?> 
+		<?php echo "<p><h3>PPPP: " . $_POST["code"] . "</h3></p>"; ?> 
 		
 		<br/>
 		<br/>

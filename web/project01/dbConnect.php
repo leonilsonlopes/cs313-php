@@ -14,8 +14,8 @@ function get_db() {
 		$dbPassword = $dbopts["pass"];
 		$dbName = ltrim($dbopts["path"],'/');
 		
-		echo "<p><h3>dbUrl: " . $dbUrl[0] . "</h3></p>"; 
-		echo "<p><h3>dbopts: " . $dbopts . "</h3></p>"; 
+		echo "<p><h3>dbUrl: " . $dbUrl . "</h3></p>"; 
+		echo "<p><h3>dbopts: " . $dbopts[0] . "</h3></p>"; 
 		echo "<p><h3>dbHost: " . $dbHost . "</h3></p>"; 
 		echo "<p><h3>dbPort: " . $dbPort . "</h3></p>"; 
 		echo "<p><h3>dbUser: " . $dbUser . "</h3></p>"; 

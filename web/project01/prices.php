@@ -7,7 +7,11 @@
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
-	<?php include 'php-binance-api-master/php-binance-api.php';?>
+	<?php 
+		$path = $_SERVER['DOCUMENT_ROOT'];
+		$path .= "/php-binance-api-master/php-binance-api.php";
+		include_once($path);
+	?>
 
 	<!-- START CONTENT AREA -->
 	  

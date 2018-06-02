@@ -5,6 +5,11 @@
   $(this).addClass('highlight').siblings().removeClass('highlight');
 });
 	</script>
+	<style>
+	.table tbody tr.highlight td {
+  background-color: #ddd;
+}
+	</style>
 	<?php include 'header.php';?>
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>

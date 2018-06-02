@@ -20,6 +20,8 @@ $(document).ready(function() {
 			table.$('tr.selected').removeClass('selected');
 			$(this).addClass('selected');
 		}
+		
+		alert(table.row( this ).data());
 	} );
 
 

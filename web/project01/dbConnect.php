@@ -13,10 +13,6 @@ function get_db() {
 		$dbUser = $dbopts["user"];
 		$dbPassword = $dbopts["pass"];
 		$dbName = ltrim($dbopts["path"],'/');
-		// Create the PDO connection
-		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
-		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 		
 		echo "<p><h3>dboopts: " . $dbUrl . "</h3></p>"; 
 		echo "<p><h3>dboopts: " . $dbopts . "</h3></p>"; 
@@ -25,6 +21,13 @@ function get_db() {
 		echo "<p><h3>dboopts: " . $dbUser . "</h3></p>"; 
 		echo "<p><h3>dboopts: " . $dbPassword . "</h3></p>"; 
 		echo "<p><h3>dboopts: " . $dbName . "</h3></p>"; 
+		
+		// Create the PDO connection
+		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
+		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+		
+
 	}
 	catch (PDOException $ex) {
 		// If this were in production, you would not want to echo

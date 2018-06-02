@@ -25,7 +25,7 @@
 				<label for="name">Coin Name:</label>
 				<input type="text" class="form-control" id="name">
 			</div>
-			<input type="submit"><button type="button" class="btn btn-primary">Save Coin</button></input>
+			<button type="submit" class="btn btn-primary">Save Coin</button>
 		</form>
 		
 		

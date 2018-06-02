@@ -19,11 +19,11 @@
 		<form action="cryptoCurrencies.php" method="post">
 			<div class="form-group">
 				<label for="code">Coin Code:</label>
-				<input type="text" class="form-control" id="code">
+				<input type="text" class="form-control" name="code">
 			</div>
 			<div class="form-group">
 				<label for="name">Coin Name:</label>
-				<input type="text" class="form-control" id="name">
+				<input type="text" class="form-control" name="name">
 			</div>
 			<button type="submit" class="btn btn-primary">Save Coin</button>
 		</form>

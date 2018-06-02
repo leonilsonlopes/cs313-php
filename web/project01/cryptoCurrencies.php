@@ -28,6 +28,7 @@
 			<button type="submit" class="btn btn-primary">Save Coin</button>
 		</form>
 		
+		<?php echo "<p><h3>" . $_POST["code"] . "</h3></p>"; ?> 
 		
 		<br/>
 		<br/>

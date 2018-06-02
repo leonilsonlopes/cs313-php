@@ -14,13 +14,13 @@ function get_db() {
 		$dbPassword = $dbopts["pass"];
 		$dbName = ltrim($dbopts["path"],'/');
 		
-		echo "<p><h3>dboopts: " . $dbUrl . "</h3></p>"; 
-		echo "<p><h3>dboopts: " . $dbopts . "</h3></p>"; 
-		echo "<p><h3>dboopts: " . $dbHost . "</h3></p>"; 
-		echo "<p><h3>dboopts: " . $dbPort . "</h3></p>"; 
-		echo "<p><h3>dboopts: " . $dbUser . "</h3></p>"; 
-		echo "<p><h3>dboopts: " . $dbPassword . "</h3></p>"; 
-		echo "<p><h3>dboopts: " . $dbName . "</h3></p>"; 
+		echo "<p><h3>dbUrl: " . $dbUrl[0] . "</h3></p>"; 
+		echo "<p><h3>dbopts: " . $dbopts . "</h3></p>"; 
+		echo "<p><h3>dbHost: " . $dbHost . "</h3></p>"; 
+		echo "<p><h3>dbPort: " . $dbPort . "</h3></p>"; 
+		echo "<p><h3>dbUser: " . $dbUser . "</h3></p>"; 
+		echo "<p><h3>dbPassword: " . $dbPassword . "</h3></p>"; 
+		echo "<p><h3>dbName: " . $dbName . "</h3></p>"; 
 		
 		// Create the PDO connection
 		$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);

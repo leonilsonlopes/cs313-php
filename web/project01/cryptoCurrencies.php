@@ -112,7 +112,8 @@ $(document).ready(function() {
 		<p><h3><b>Saved Coins:</b></h3></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
-				<tr>				
+				<tr>
+				<th scope="col">#</th>
 				<th scope="col">Coin Code</th>
 				<th scope="col">Coin Name</th>
 				</tr>
@@ -124,7 +125,8 @@ $(document).ready(function() {
 			$db = get_db();
 			foreach ($db->query('SELECT * FROM currency') as $row){
 				echo '<tr>
-				<th scope=\"row\">' . $row['code'] . '</th>
+				<th scope=\"row\">' . $row['id'] . '</th>
+				<td>' . $row['code'] . '</td>
 				<td>' . $row['name'] . '</td>
 				</tr>';
 			} 

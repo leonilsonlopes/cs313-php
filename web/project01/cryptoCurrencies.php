@@ -21,9 +21,7 @@ $(document).ready(function() {
 		}
 	} );
 
-	$('#button').click( function () {
-		table.row('.selected').remove().draw( false );
-	} );
+
 } );
 
 

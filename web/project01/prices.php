@@ -7,7 +7,7 @@
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
-	<?php include 'php-binance-api.php';?>
+
 
 	<!-- START CONTENT AREA -->
 	  

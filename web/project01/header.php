@@ -32,11 +32,7 @@ $(document).ready(function() {
  
 } );
 	</script>
-	<style>
-	.table tbody tr.highlight td {
-  background-color: #ddd;
-}
-	</style>
+
   
 </head>";
 ?>

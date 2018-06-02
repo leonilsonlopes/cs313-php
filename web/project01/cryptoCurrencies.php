@@ -25,24 +25,30 @@
 				<label for="name">Coin Name:</label>
 				<input type="text" class="form-control" name="name">
 			</div>
+			<input type="hidden" name="clicked" value="1">
 			<button type="submit" class="btn btn-primary">Save Coin</button>
 		</form>
 		
 		<?php 
 			try
 			{
-				$coinCode = $_POST["code"];
-				$coinName = $_POST["name"];
-				$db = get_db();
+				$clicked = $_POST["clicked"];
 				
-				// Again, first prepare the statement
-				$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
-	
-				// Then, bind the values
-				$statement->bindValue(':coinCode', $coinCode);
-				$statement->bindValue(':coinName', $coinName);
-	
-				$statement->execute();
+				if($clicked == "1"){
+				
+					$coinCode = $_POST["code"];
+					$coinName = $_POST["name"];
+					$db = get_db();
+					
+					// Again, first prepare the statement
+					$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+		
+					// Then, bind the values
+					$statement->bindValue(':coinCode', $coinCode);
+					$statement->bindValue(':coinName', $coinName);
+		
+					$statement->execute();
+				}
 			}
 			catch (Exception $ex)
 			{				

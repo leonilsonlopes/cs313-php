@@ -11,6 +11,7 @@
 		$path = $_SERVER['DOCUMENT_ROOT'];
 		$path .= "/php-binance-api-master/php-binance-api.php";
 		include_once($path);
+		echo $path;
 	?>
 
 	<!-- START CONTENT AREA -->

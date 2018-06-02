@@ -62,7 +62,7 @@ $(document).ready(function() {
 			<input type="hidden" name="clicked" value="1"/>
 			<button type="submit" class="btn btn-success" value="addCoin" name="btnSaveCoin">Save Coin</button>
 			<button type="submit" class="btn btn-primary" value="updateCoin" name="btnUpdateCoin">Update Coin</button>
-			<button type="submit" class="btn btn-delete" value="deleteCoin" name="btnDeleteCoin">Delete Coin</button>
+			<button type="submit" class="btn btn-danger" value="deleteCoin" name="btnDeleteCoin">Delete Coin</button>
 		</form>
 		
 		<?php 

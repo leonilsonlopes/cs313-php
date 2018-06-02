@@ -21,7 +21,7 @@ $(document).ready(function() {
 			$(this).addClass('selected');
 		}
 		
-		document.getElementById("code").innerHTML = table.row( this ).data()[1]);
+		document.getElementById("code").innerHTML = table.row( this ).data()[1];
 	} );
 
 

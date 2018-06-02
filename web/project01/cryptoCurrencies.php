@@ -16,7 +16,7 @@
 			</div>
 		</div>
 	
-		<form action="cryptoCurrencies.php" method="post">
+		<form action="test.php" method="post">
 			<div class="form-group">
 				<label for="code">Coin Code:</label>
 				<input type="text" class="form-control" name="code">

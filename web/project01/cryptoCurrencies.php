@@ -43,7 +43,9 @@
 			<tbody>
 
 		<!-- Retrieve Data -->	
-		<?php foreach ($db->query('SELECT * FROM currency') as $row){
+		<?php 
+			$db = get_db();
+			foreach ($db->query('SELECT * FROM currency') as $row){
 				echo '<tr>
 				<th scope=\"row\">' . $row['id'] . '</th>
 				<td>' . $row['code'] . '</td>

@@ -28,7 +28,28 @@
 			<button type="submit" class="btn btn-primary">Save Coin</button>
 		</form>
 		
-		<?php echo "<p><h3>PPPP: " . $_POST["code"] . "</h3></p>"; ?> 
+		<?php 
+			try
+			{
+				$coinCode = $_POST["code"];
+				$coinName = $_POST["name"];
+				$db = get_db();
+				
+				// Again, first prepare the statement
+				$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+	
+				// Then, bind the values
+				$statement->bindValue(':coinCode', $coinCode);
+				$statement->bindValue(':coinName', $coinName);
+	
+				$statement->execute();
+			catch (Exception $ex)
+			{				
+				echo "Error with DB. Details: $ex";
+				die();
+			}
+			
+		?> 
 		
 		<br/>
 		<br/>

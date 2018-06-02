@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-	
+	<script>
+	$('#currencies').on('click', 'tbody tr', function(event) {
+  $(this).addClass('highlight').siblings().removeClass('highlight');
+});
+	</script>
 	<?php include 'header.php';?>
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>

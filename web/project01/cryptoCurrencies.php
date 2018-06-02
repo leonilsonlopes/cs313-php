@@ -21,6 +21,7 @@ $(document).ready(function() {
 			$(this).addClass('selected');
 		}
 		
+		$('input[name=id]').val(table.row( this ).data()[0]);
 		$('input[name=code]').val(table.row( this ).data()[1]);
 		$('input[name=name]').val(table.row( this ).data()[2]);
 
@@ -44,11 +45,12 @@ $(document).ready(function() {
 		<div class="container">
 			<h2>Crypto Currencies</h2>
 			<div class="panel panel-default">
-				<div class="panel-body">Insert the crypto coin you want to follow here</div>
+				<div class="panel-body">Manage the crypto coin you want to follow here</div>
 			</div>
 		</div>
 	
 		<form action="cryptoCurrencies.php" method="post">
+			<input type="hidden" name="id"/>
 			<div class="form-group">
 				<label for="code">Coin Code:</label>
 				<input type="text" class="form-control" name="code">
@@ -57,8 +59,10 @@ $(document).ready(function() {
 				<label for="name">Coin Name:</label>
 				<input type="text" class="form-control" name="name">
 			</div>
-			<input type="hidden" name="clicked" value="1">
-			<button type="submit" class="btn btn-primary">Save Coin</button>
+			<input type="hidden" name="clicked" value="1"/>
+			<button type="submit" class="btn btn-success" value="addCoin" name="btnSaveCoin">Save Coin</button>
+			<button type="submit" class="btn btn-primary" value="updateCoin" name="btnUpdateCoin">Update Coin</button>
+			<button type="submit" class="btn btn-delete" value="deleteCoin" name="btnDeleteCoin">Delete Coin</button>
 		</form>
 		
 		<?php 
@@ -68,14 +72,26 @@ $(document).ready(function() {
 				
 				if($clicked == "1"){
 				
+					$coinID = $_POST["id"];
 					$coinCode = $_POST["code"];
 					$coinName = $_POST["name"];
 					$db = get_db();
 					
 					// Again, first prepare the statement
-					$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+					if($_POST["btnSaveCoin"] == "addCoin"){
+						$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+					}
+					
+					if($_POST["btnUpdateCoin"] == "updateCoin"){
+						$statement = $db->prepare('UPDATE currency SET code=:coinCode, name=:coinName WHERE id = :coinID');
+					}
+					
+					if($_POST["btnDeleteCoin"] == "deleteCoin"){
+						$statement = $db->prepare('DELETE FROM currency WHERE id = :coinID');
+					}
 		
 					// Then, bind the values
+					$statement->bindValue(':coinID', $coinID);
 					$statement->bindValue(':coinCode', $coinCode);
 					$statement->bindValue(':coinName', $coinName);
 		

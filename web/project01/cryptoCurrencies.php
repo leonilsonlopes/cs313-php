@@ -48,7 +48,7 @@
 				<td>' . $row['name'] . '</td>
 				</tr>';
 			} 
-		?>;
+		?>
 			</tbody>
 		</table>
 		

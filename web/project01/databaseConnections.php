@@ -25,8 +25,6 @@ echo "<div class=\"form-group\">
   </thead>
   <tbody>";
   
-echo  '<p><h3>' . getenv('DATABASE_URL_PROJECT01') . '</h3></p>';
-
 try
 {
   $user = 'cznxcdmecjdoem';

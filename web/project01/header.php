@@ -7,7 +7,8 @@ echo "<head>
   <meta name=\"author\" content=\"\">
   <title>CS313 - Project01 - Crypto Trader</title>
   <!-- Bootstrap core CSS-->
-  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
+  <script src=\"https://code.jquery.com/jquery-3.3.1.js\"></script>
+  <script src=\"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js\"></script>
   <link href=\"vendor/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
   <!-- Custom fonts for this template-->
   <link href=\"vendor/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">

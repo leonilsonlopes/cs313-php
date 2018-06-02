@@ -22,7 +22,8 @@ $(document).ready(function() {
 		}
 		
 		alert(table.row( this ).data()[1]);
-		document.getElementById("code").innerHTML = table.row( this ).data()[1];
+		$('#code').append(table.row( this ).data()[1]);
+		//document.getElementById("code").innerHTML = table.row( this ).data()[1];
 	} );
 
 

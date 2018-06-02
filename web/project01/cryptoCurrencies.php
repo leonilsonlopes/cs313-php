@@ -5,16 +5,9 @@
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
-
+	<?php include 'dbConnect.php';?>
 	<!-- START CONTENT AREA -->
-	  
-		<div class="container">
-			<h2>Crypto Currencies</h2>
-			<div class="panel panel-default">
-				<div class="panel-body">Insert the crypto coin you want to follow here</div>
-			</div>
-		</div>
-	
+
 
 		<div class="container">
 			<h2>Crypto Currencies</h2>

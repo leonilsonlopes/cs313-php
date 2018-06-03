@@ -24,7 +24,7 @@
   $json = file_get_contents($url);
   $data = json_decode($json, TRUE);
 
-  echo $json
+  echo $json;
   
   $rate = $data[1]["rate"];    
   $usd_price = 10;     # Let cost of elephant be 10$

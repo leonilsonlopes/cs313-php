@@ -7,12 +7,6 @@
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
-	<?php 
-		$path = $_SERVER['DOCUMENT_ROOT'];
-		$path .= "/php-binance-api-master/php-binance-api.php";
-		include_once($path);
-		echo $path;
-	?>
 
 	<!-- START CONTENT AREA -->
 	  
@@ -24,12 +18,20 @@
 		</div>
 	
 	<?php 
-		composer require jaggedsoft/php-binance-api;
-		require 'vendor/autoload.php';;
-		$api = new Binance\API();
-		//$ticker = $api->prices();
-		//print_r($ticker); // List prices of all symbols
-		//echo "Price of BNB: {$ticker['BNBBTC']} BTC.".PHP_EOL;
+<?php  
+  $url = "https://bitpay.com/api/rates";
+
+  $json = file_get_contents($url);
+  $data = json_decode($json, TRUE);
+
+  $rate = $data[1]["rate"];    
+  $usd_price = 10;     # Let cost of elephant be 10$
+  $bitcoin_price = round( $usd_price / $rate , 8 );
+?>
+
+<ul>
+   <li>Price: <?=$usd_price ?> $ / <?=$bitcoin_price ?> BTC
+</ul>
 	?>
 	
 	<!-- CLOSE CONTENT AREA -->	

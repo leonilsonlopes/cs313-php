@@ -17,7 +17,7 @@
 			</div>
 		</div>
 	
-	<?php 
+
 <?php  
   $url = "https://bitpay.com/api/rates";
 
@@ -32,7 +32,7 @@
 <ul>
    <li>Price: <?=$usd_price ?> $ / <?=$bitcoin_price ?> BTC
 </ul>
-	?>
+
 	
 	<!-- CLOSE CONTENT AREA -->	
 	

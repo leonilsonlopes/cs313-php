@@ -51,12 +51,12 @@
 				$currentCoin = $row['code'];
 				$coinData = getCoinInfo($currentCoin);
 				$price_usd = 'N/A';
-				if($coinData['price_usd'] == '') $price_usd = $coinData['price_usd'];
+				
 					
 				echo '<tr>
 				<th scope=\"row\">' . $currentCoin . '</th>				
 				<td>' . $row['name'] . '</td>
-				<td>' . $price_usd . '</td>
+				<td>' . if(!$coinData['price_usd'] == '') echo $coinData['price_usd'];else echo 'N/A'; . '</td>
 				<td>' . $coinData['percent_change_1h'] . '%</td>
 				<td>' . $coinData['percent_change_24h'] . '%</td>
 				<td>' . $coinData['percent_change_7d'] . '%</td>

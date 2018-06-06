@@ -1,4 +1,4 @@
-<?
+<?php
 function getCoinInfo($coinCode){
 	$coinbasePublicAPI = 'https://api.coinmarketcap.com/v1/ticker/';
 	$coinData = file_get_contents($coinbasePublicAPI);

@@ -46,19 +46,19 @@
 
 		<!-- Retrieve Data -->	
 		<?php 
-			//foreach (getListOfCurrencies() as $row){
-				//$currentCoin = $row['code'];
-				//$coinData = getCoinInfo($currentCoin);
-				//echo '<tr>
-				//<th scope=\"row\">' . $currentCoin . '</th>				
-				//<td>' . $row['name'] . '</td>
-				//<td>' . $coinData['price_usd'] . '</td>
-				//<td>' . $coinData['percent_change_1h'] . '</td>
-				//<td>' . $coinData['percent_change_24h'] . '</td>
-				//<td>' . $coinData['percent_change_7d'] . '</td>
-				//<td>' . date('mm/dd/YY', $coinData['last_updated']) . '</td>
-				//</tr>';
-			//} 
+			foreach (getListOfCurrencies() as $row){
+				$currentCoin = $row['code'];
+				$coinData = getCoinInfo($currentCoin);
+				echo '<tr>
+				<th scope=\"row\">' . $currentCoin . '</th>				
+				<td>' . $row['name'] . '</td>
+				<td>' . $coinData['price_usd'] . '</td>
+				<td>' . $coinData['percent_change_1h'] . '</td>
+				<td>' . $coinData['percent_change_24h'] . '</td>
+				<td>' . $coinData['percent_change_7d'] . '</td>
+				<td>' . date('mm/dd/YY', $coinData['last_updated']) . '</td>
+				</tr>';
+			} 
 		?>
 			</tbody>
 		</table>

@@ -22,7 +22,8 @@
 		
 				<br/>
 		<br/>
-		<p><h2><b>Price Information:</b></h2></p>
+		<p><h4><b>Price Information:</b></h4></p>
+		<p>New information available each 5 minutes.</p>
 		
 		
 		<form action="prices.php" method="post">			

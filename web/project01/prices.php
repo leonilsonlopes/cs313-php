@@ -1,6 +1,7 @@
-<?php include 'dbFunctions.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
+	<?php include 'dbFunctions.php';?>
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	

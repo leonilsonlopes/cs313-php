@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php include 'dbFunctions.php';?>
-	<?php //include 'coinFunctions.php';?>
+	<?php include 'coinFunctions.php';?>
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	
@@ -22,13 +22,14 @@
 		
 				<br/>
 		<br/>
-		<p><h3><b>Price Information:</b></h3></p>
+		<p><h2><b>Price Information:</b></h2></p>
 		
 		
 		<form action="prices.php" method="post">			
 			<button type="submit" class="btn btn-success" value="addCoin" name="btnSaveCoin">Refresh Price Information</button>			
 		</form>
-		
+		<br/>
+		<br/>
 		
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>

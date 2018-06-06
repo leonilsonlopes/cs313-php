@@ -51,7 +51,7 @@
 				$currentCoin = $row['code'];
 				$coinData = getCoinInfo($currentCoin);
 				$price_usd = 'N/A';
-				//if(!is_null($coinData['price_usd']) $price_usd = $coinData['price_usd'];
+				if($coinData['price_usd'] == '') $price_usd = $coinData['price_usd'];
 					
 				echo '<tr>
 				<th scope=\"row\">' . $currentCoin . '</th>				

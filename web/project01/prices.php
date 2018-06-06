@@ -53,7 +53,7 @@
 				echo '<tr>
 				<th scope=\"row\">' . $currentCoin . '</th>				
 				<td>' . $row['name'] . '</td>
-				<td>' . if(is_null($coinData['price_usd'])){'N/A'}else{$coinData['price_usd']} . '</td>
+				<td>' . if(is_null($coinData['price_usd'])){echo 'N/A';}else{echo $coinData['price_usd'];} . '</td>
 				<td>' . $coinData['percent_change_1h'] . '%</td>
 				<td>' . $coinData['percent_change_24h'] . '%</td>
 				<td>' . $coinData['percent_change_7d'] . '%</td>

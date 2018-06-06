@@ -1,3 +1,4 @@
+<?php include 'dbFunctions.php';?>
 <!DOCTYPE html>
 <html lang="en">
 	<?php include 'header.php';?>
@@ -18,9 +19,9 @@
 		</div>
 		
 <?php
-
-echo shell_exec('ls -la');
-
+//Execute background process
+//echo shell_exec('ls -la');
+echo getListOfCurrencies();
 ?>
 	
 

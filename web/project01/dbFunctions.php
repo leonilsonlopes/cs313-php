@@ -7,6 +7,7 @@ function getListOfCurrencies(){
 	echo 'check 2';
 	$result = $db->query('SELECT * FROM currency');
 	echo 'check 3';
+	echo $result;
 	return $result;
 }
 ?>

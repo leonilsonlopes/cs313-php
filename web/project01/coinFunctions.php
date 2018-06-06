@@ -4,13 +4,14 @@ function getCoinInfo($coinCode){
 	$coinData = file_get_contents($coinbasePublicAPI);
 	$coinData = json_decode($coinData, true);
 	$numCoinbaseCoins = sizeof ($coinData);
-	echo 'numCoinbaseCoins: ' . $numCoinbaseCoins;
+	
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
-		//if($coinCode == $coinData[$i]['symbol']){
-			//return $coinData[$i];
-		//}else{
-			//continue;
-		//}
+		if($coinCode == $coinData[$i]['symbol']){
+			return $coinData[$i];
+		}else{
+			continue;
+		}
+	}
 		
 }
 ?>

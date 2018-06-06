@@ -46,7 +46,7 @@
 			<tbody>
 
 		<!-- Retrieve Data	-->
-		<?php /*
+		<?php 
 			foreach (getListOfCurrencies() as $row){
 				$currentCoin = $row['code'];
 				$coinData = getCoinInfo($currentCoin);
@@ -60,7 +60,7 @@
 				<td>' . date('mm/dd/YY', $coinData['last_updated']) . '</td>
 				</tr>';
 			} 
-			*/
+			
 		?> 
 			</tbody>
 		</table>

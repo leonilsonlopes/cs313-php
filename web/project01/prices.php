@@ -23,7 +23,13 @@
 //Execute background process
 //echo shell_exec('ls -la');
 try{
-	echo getListOfCurrencies();
+	foreach (getListOfCurrencies() as $row){
+				echo '<tr>
+				<th scope=\"row\">' . $row['id'] . '</th>
+				<td>' . $row['code'] . '</td>
+				<td>' . $row['name'] . '</td>
+				</tr>';
+			} 
 }catch(Exception $e){
 	echo 'Error: '. $e;
 }

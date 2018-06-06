@@ -13,9 +13,15 @@
 		<div class="container">
 			<h2>Prices</h2>
 			<div class="panel panel-default">
-				<div class="panel-body">Get the lastest price of your coins here.</div>
+				<div class="panel-body">Follow up the lastest price of your coins here.</div>
 			</div>
 		</div>
+		
+<?php
+
+echo shell_exec('ls -la)';
+
+?>
 	
 
 <?php

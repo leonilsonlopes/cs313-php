@@ -50,11 +50,13 @@
 			foreach (getListOfCurrencies() as $row){
 				$currentCoin = $row['code'];
 				$coinData = getCoinInfo($currentCoin);
-				if(is_null($coinData['price_usd'])){echo 'N/A';}else{echo $coinData['price_usd'];}
+				$price_usd = 'N/A';
+				if(!is_null($coinData['price_usd']) $price_usd = $coinData['price_usd'];
+					
 				echo '<tr>
 				<th scope=\"row\">' . $currentCoin . '</th>				
 				<td>' . $row['name'] . '</td>
-				<td>' .  . '</td>
+				<td>' . $price_usd . '</td>
 				<td>' . $coinData['percent_change_1h'] . '%</td>
 				<td>' . $coinData['percent_change_24h'] . '%</td>
 				<td>' . $coinData['percent_change_7d'] . '%</td>

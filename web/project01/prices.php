@@ -22,7 +22,11 @@
 <?php
 //Execute background process
 //echo shell_exec('ls -la');
-echo getListOfCurrencies();
+try{
+	echo getListOfCurrencies();
+}catch(Exception $e){
+	echo 'Error: '. $e;
+}
 ?>
 	
 

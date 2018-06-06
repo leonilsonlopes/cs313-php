@@ -7,7 +7,7 @@ function getCoinInfo($coinCode){
 	
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
 		if($coinCode == $coinData[$i]['symbol']){
-			return coinData[$i];
+			return $coinData[$i];
 		}else{
 			continue;
 		}

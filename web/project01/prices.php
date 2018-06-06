@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php include 'dbFunctions.php';?>
+	<?php include 'coinFunctions.php';?>
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	
@@ -21,138 +22,47 @@
 		
 				<br/>
 		<br/>
-		<p><h3><b>Saved Coins:</b></h3></p>
+		<p><h3><b>Price Information:</b></h3></p>
+		
+		
+		<form action="prices.php" method="post">			
+			<button type="submit" class="btn btn-success" value="addCoin" name="btnSaveCoin">Refresh Price Information</button>			
+		</form>
+		
+		
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
-				<tr>
-				<th scope="col">#</th>
+				<tr>				
 				<th scope="col">Coin Code</th>
 				<th scope="col">Coin Name</th>
+				<th scope="col">USD Price</th>
+				<th scope="col">Last Hour Variation</th>
+				<th scope="col">Last 24hs Variation</th>
+				<th scope="col">Last 7 days Variation</th>
+				<th scope="col">Last Update</th>
 				</tr>
 			</thead>
 			<tbody>
 
 		<!-- Retrieve Data -->	
 		<?php 
-			$db = get_db();
-			foreach ($db->query('SELECT * FROM currency') as $row){
+			foreach (getListOfCurrencies()  as $row){
+				$currentCoin = $row['code'];
+				$coinData = getCoinInfo($currentCoin);
 				echo '<tr>
-				<th scope=\"row\">' . $row['id'] . '</th>
-				<td>' . $row['code'] . '</td>
+				<th scope=\"row\">' . $currentCoin . '</th>				
 				<td>' . $row['name'] . '</td>
+				<td>' . $coinData['price_usd'] . '</td>
+				<td>' . $coinData['percent_change_1h'] . '</td>
+				<td>' . $coinData['percent_change_24h'] . '</td>
+				<td>' . $coinData['percent_change_7d'] . '</td>
+				<td>' . date('mm/dd/YY', $coinData['last_updated']) . '</td>
 				</tr>';
 			} 
 		?>
 			</tbody>
 		</table>
 		
-		
-		
-<?php
-//Execute background process
-//echo shell_exec('ls -la');
-try{
-	foreach (getListOfCurrencies() as $row){
-				echo '<tr>
-				<th scope=\"row\">' . $row['id'] . '</th>
-				<td>' . $row['code'] . '</td>
-				<td>' . $row['name'] . '</td>
-				</tr>';
-			} 
-}catch(Exception $e){
-	echo 'Error: '. $e;
-}
-
-$coinbasePublicAPI = 'https://api.coinmarketcap.com/v1/ticker/';
-$coinData = file_get_contents($coinbasePublicAPI);
-$coinData = json_decode($coinData, true);
-
-print_r($coinData);
-?>
-	
-
-<?php
-$myCoins = array(
-   'BTC' => array ( 'balance' => 0.0093 ),
-   'ETH' => array ( 'balance' => 0.235724420 ),
-   'XRB' => array ( 'balance' => 2.524402070 ),
-   'MIOTA' => array ('balance' => 33.000000000 ),
-   'XRP' => array ( 'balance' => 49.000000000 ),
-   'XLM' => array ( 'balance' => 105.894000000 ),
-   'TRX' => array ( 'balance' => 599.400000000 )
-);
-// ok now hit the api...
-$coinbasePublicAPI = 'https://api.coinmarketcap.com/v1/ticker/';
-$coinData = file_get_contents($coinbasePublicAPI);
-$coinData = json_decode($coinData, true);
-echo '<table>';
-echo '<tr>';
-   echo '<td>NAME</td>';
-   echo '<td>SYMBOL</td>';
-   echo '<td>PRICE</td>';
-   echo '<td>HOLDINGS</td>';
-   echo '<td>VALUE</td>';
-   echo '<td>1hr</td>';
-   echo '<td>24hr</td>';
-   echo '<td>7day</td>';
-echo '</tr>';
-$numCoinbaseCoins = sizeof ($coinData);
-$portfolioValue = 0;
-for ( $xx=0; $xx<$numCoinbaseCoins; $xx++) {
-   // this part compares your coins to the data...
-   $thisCoinSymbol = $coinData[$xx]['symbol'];
-   // if you have it, this var is true...
-   $coinHeld = array_key_exists($thisCoinSymbol, $myCoins);
-   // comment the next line out & you will see ALL of the coins 
-   // returned (not just the ones you own):
-   if ( !$coinHeld ) { continue; }
-   
-   echo '<tr>';
-   
-      // name:
-      echo '<td>' . $coinData[$xx]['name'] .'</td>';
-      
-      // symbol:
-      echo '<td>' . $thisCoinSymbol .'</td>';
-      
-      // price:
-      $thisCoinPrice = $coinData[$xx]['price_usd'];
-      echo '<td>&#36;' . number_format($thisCoinPrice,2) .'</td>';
-      
-      // holdings:
-      echo '<td>';
-         if ($coinHeld) {
-            $myBalance_units = $myCoins[$thisCoinSymbol]['balance'];
-            echo number_format($myBalance_units,10);
-         }
-      echo '</td>';
-      
-      // track running total value of coins:
-      if ($coinHeld) {
-         $myBalance_USD = $myBalance_units * $thisCoinPrice;
-         $portfolioValue += $myBalance_USD;
-      }
-      // value:            
-      echo '<td>&#36;'. number_format($myBalance_USD,2) .'</td>';
-      // 1h market change:
-      echo '<td>' . $coinData[$xx]['percent_change_1h'] .'%</td>';
-      // 24h market change:
-      echo '<td>' . $coinData[$xx]['percent_change_24h'] .'%</td>';
-      // 7d market change:
-      echo '<td>' . $coinData[$xx]['percent_change_7d'] .'%</td>';
-      
-   echo '</tr>';
-   
-}
-echo '<tr>';
-   echo '<td colspan="4"><strong>TOTAL</strong></td>';
-   echo '<td colspan="4"><strong>&#36;' . number_format($portfolioValue,2) . '</strong></td>';
-echo '</tr>';
-echo '</table>';
-?>
-
-
-
 
 	
 	<!-- CLOSE CONTENT AREA -->	

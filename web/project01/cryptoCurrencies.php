@@ -38,6 +38,7 @@ $(document).ready(function() {
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
+	<?php include 'dbFunctions.php';?>
 	<!-- START CONTENT AREA -->
 
 

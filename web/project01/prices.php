@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php include 'dbFunctions.php';?>
-	<?php include 'coinFunctions.php';?>
+	<?php //include 'coinFunctions.php';?>
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	
@@ -44,8 +44,8 @@
 			</thead>
 			<tbody>
 
-		<!-- Retrieve Data -->	
-		<?php 
+		<!-- Retrieve Data	-->
+		<?php /*
 			foreach (getListOfCurrencies() as $row){
 				$currentCoin = $row['code'];
 				$coinData = getCoinInfo($currentCoin);
@@ -59,7 +59,8 @@
 				<td>' . date('mm/dd/YY', $coinData['last_updated']) . '</td>
 				</tr>';
 			} 
-		?>
+			*/
+		?> 
 			</tbody>
 		</table>
 		

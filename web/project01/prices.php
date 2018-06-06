@@ -23,7 +23,7 @@
 //Execute background process
 //echo shell_exec('ls -la');
 try{
-	echo getListOfCurrencies();
+	//echo getListOfCurrencies();
 }catch(Exception $e){
 	echo 'Error: '. $e;
 }

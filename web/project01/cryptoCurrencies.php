@@ -38,7 +38,6 @@ $(document).ready(function() {
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
-	<?php include 'dbConnect.php';?>
 	<!-- START CONTENT AREA -->
 
 
@@ -121,9 +120,8 @@ $(document).ready(function() {
 			<tbody>
 
 		<!-- Retrieve Data -->	
-		<?php 
-			$db = get_db();
-			foreach ($db->query('SELECT * FROM currency') as $row){
+		<?php 			
+			foreach (getListOfCurrencies() as $row){
 				echo '<tr>
 				<th scope=\"row\">' . $row['id'] . '</th>
 				<td>' . $row['code'] . '</td>

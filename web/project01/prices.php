@@ -19,6 +19,35 @@
 			</div>
 		</div>
 		
+				<br/>
+		<br/>
+		<p><h3><b>Saved Coins:</b></h3></p>
+		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+			<thead>
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">Coin Code</th>
+				<th scope="col">Coin Name</th>
+				</tr>
+			</thead>
+			<tbody>
+
+		<!-- Retrieve Data -->	
+		<?php 
+			$db = get_db();
+			foreach ($db->query('SELECT * FROM currency') as $row){
+				echo '<tr>
+				<th scope=\"row\">' . $row['id'] . '</th>
+				<td>' . $row['code'] . '</td>
+				<td>' . $row['name'] . '</td>
+				</tr>';
+			} 
+		?>
+			</tbody>
+		</table>
+		
+		
+		
 <?php
 //Execute background process
 //echo shell_exec('ls -la');
@@ -33,6 +62,12 @@ try{
 }catch(Exception $e){
 	echo 'Error: '. $e;
 }
+
+$coinbasePublicAPI = 'https://api.coinmarketcap.com/v1/ticker/';
+$coinData = file_get_contents($coinbasePublicAPI);
+$coinData = json_decode($coinData, true);
+
+print_r($coinData);
 ?>
 	
 

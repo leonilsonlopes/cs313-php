@@ -40,17 +40,17 @@
 		
 		<?php
 			 echo "<p><h1> ---:" . $_POST["selectedCoin"] . ":-----</h1></p>";
-			 echo "<br/><br/><p><h1>" . $_POST["clicked"] . "</h1></p>";
+			 echo "<br/><br/><p><h1>" . $_POST . "</h1></p>";
 			 
 			 // receive all data in an array
 $fields = $_POST['selectedCoin'];
   
 // output / process all data
 foreach ($fields as $value) {
-   echo "<p><h1> ---2:" . $value . ":-----</h1></p>";
+   echo "<br/><br/><p><h1> ---2:" . $value . ":-----</h1></p>";
 }
 
-echo "<p><h1> ---3:" . print_r($_POST["dropMenuCoins"]) . ":-----</h1></p>";
+echo "<br/><br/><p><h1> ---3:" . var_dump($_POST["dropMenuCoins"]) . ":-----</h1></p>";
 
 		?>
 		

@@ -10,7 +10,7 @@ echo "<head>
   <script type=\"text/javascript\" language=\"javascript\" src=\"https://code.jquery.com/jquery-3.3.1.js\"></script>
   <script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js\"></script>
   <link href=\"vendor/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
-  <link href=\"vendor/bootstrap/js/*" rel=\"stylesheet\">
+  <link href=\"vendor/bootstrap/js/*\" rel=\"stylesheet\">
    <!-- Custom fonts for this template-->
   <link href=\"vendor/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
   <!-- Custom styles for this template-->

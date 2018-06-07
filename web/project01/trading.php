@@ -29,7 +29,7 @@
 			
 				<?php						
 					foreach (getListOfCurrencies() as $row){						
-						echo '<a class=\"dropdown-item\" href=\"#\">' . $row['code'] . '</a>';						
+						echo '<a class="dropdown-item" href="#">' . $row['code'] . '</a>';						
 					}
 				?>			
 			

@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<br/><br/>
-		<form action="test.php" method="post">
+		<form action="trading.php" method="post">
 			<div class="btn-group">	
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Select a Coin
@@ -35,11 +35,11 @@
 				
 				</div>
 			</div>	
-				<input type="text" id="selectedCoin" name="selectedCoin" value="fixed" />
+				<input type="hidden" id="selectedCoin" name="selectedCoin"/>
 		</form>
 		
 		<?php
-			echo "<p><h1>SELECTEDzzz:::: " . var_dump($_POST['selectedCoin']) . "</h1></p>";
+			echo "<p><h1>SELECTED:::: " . $_POST['selectedCoin'] . "</h1></p>";
 		?>
 		
 		<br/><br/>

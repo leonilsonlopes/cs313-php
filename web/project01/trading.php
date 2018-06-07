@@ -19,9 +19,9 @@
 				<div class="panel-body">Record your Buy and Sell orders here</div>
 			</div>
 		</div>
-		
+		<br/><br/>
 		<div class="btn-group">	
-			<button type="button" class="btn btn-danger">Select Coin</button>		
+			<button type="button" class="btn btn-success">Select Coin</button>		
 			<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="sr-only">Toggle Dropdown</span>
 			</button>
@@ -29,7 +29,7 @@
 			
 				<?php						
 					foreach (getListOfCurrencies() as $row){						
-						echo '<a class=\"dropdown-item\" href=\"#\"' . $row['code'] . '</a>';						
+						echo '<a class=\"dropdown-item\" href=\"#\">' . $row['code'] . '</a>';						
 					}
 				?>			
 			

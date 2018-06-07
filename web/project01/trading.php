@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<br/><br/>
-		<form action="trading.php" method="post">
+		<form action="test.php" method="post">
 			<div class="btn-group">	
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Select a Coin
@@ -31,13 +31,13 @@
 						$selectedCoin;
 						foreach (getListOfCurrencies() as $row){	
 							array_push($availableCoins,$row['code']);
-							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedCoin\').value=\'' . $row['code'] . '\';">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedCoin\').value=\'' . $row['code'] . '\';javascript:$(\'form\').submit();">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
 				
 				</div>
 			</div>	
-				<input type="text" id="selectedCoin" onclick="javascript:$('form').submit();"/>
+				<input type="text" id="selectedCoin" />
 		</form>
 		
 		<?php

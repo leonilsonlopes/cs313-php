@@ -27,9 +27,11 @@
 				</button>		
 				<div class="dropdown-menu" name="dropMenuCoins">
 				
-					<?php						
-						foreach (getListOfCurrencies() as $row){						
-							echo '<div class="dropdown-divider"></div><a class="dropdown-item" name="selectedCoin[]" value="' .$row['code'] . '" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+					<?php
+						$availableCoins = array();
+						foreach (getListOfCurrencies() as $row){	
+							array_push($availableCoins,$row['code']);
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" name="' .$row['code'] . '" value="selected" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
 				
@@ -39,18 +41,7 @@
 		</form>
 		
 		<?php
-			 echo "<p><h1> ---:" . $_POST["selectedCoin"] . ":-----</h1></p>";
-			 echo "<br/><br/><p><h1>" . $_POST . "</h1></p>";
-			 
-			 // receive all data in an array
-$fields = $_POST['selectedCoin'];
-  
-// output / process all data
-foreach ($fields as $value) {
-   echo "<br/><br/><p><h1> ---2:" . $value . ":-----</h1></p>";
-}
-
-echo "<br/><br/><p><h1> ---3:" . var_dump($_POST["dropMenuCoins"]) . ":-----</h1></p>";
+			echo "<p><h1>" . var_dump($availableCoins) . "</h1></p>";
 
 		?>
 		

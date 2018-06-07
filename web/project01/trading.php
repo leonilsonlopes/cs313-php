@@ -39,7 +39,7 @@
 		</form>
 		
 		<?php
-			 echo "<p><h1>" . $_POST["selectedCoin"] . "</h1></p>";
+			 echo "<p><h1> ---:" . $_POST["selectedCoin"] . ":-----n</h1></p>";
 			 echo "<br/><br/><p><h1>" . $_POST["clicked"] . "</h1></p>";
 		?>
 		

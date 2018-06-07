@@ -25,7 +25,7 @@
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Select a Coin
 				</button>		
-				<div class="dropdown-menu">
+				<div class="dropdown-menu" name="dropMenuCoins">
 				
 					<?php						
 						foreach (getListOfCurrencies() as $row){						
@@ -47,8 +47,11 @@ $fields = $_POST['selectedCoin'];
   
 // output / process all data
 foreach ($fields as $value) {
-  echo $value;
+   echo "<p><h1> ---2:" . $value . ":-----</h1></p>";
 }
+
+echo "<p><h1> ---3:" . print_r($_POST["dropMenuCoins"]) . ":-----</h1></p>";
+
 		?>
 		
 		<br/><br/>

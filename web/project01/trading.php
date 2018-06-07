@@ -41,7 +41,7 @@
 		</form>
 		
 		<?php
-			echo "<p><h1>SELECTED:::: " . var_dump($_POST['selectedCoin']) . "</h1></p>";
+			echo "<p><h1>SELECTEDzzz:::: " . var_dump($_POST['selectedCoin']) . "</h1></p>";
 		?>
 		
 		<br/><br/>

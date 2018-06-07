@@ -28,10 +28,10 @@
 				<div class="dropdown-menu">
 				
 					<?php
-						$availableCoins = array();
+						$selectedCoin;
 						foreach (getListOfCurrencies() as $row){	
 							array_push($availableCoins,$row['code']);
-							echo '<div class="dropdown-divider"></div><input class="dropdown-item" name="' .$row['code'] . '" value="selected" onclick="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</input>';						
+							echo '<div class="dropdown-divider"></div><input class="dropdown-item" onclick="alert(\'test\');javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</input>';						
 						}
 					?>			
 				

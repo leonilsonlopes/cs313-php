@@ -31,13 +31,13 @@
 						$selectedCoin;
 						foreach (getListOfCurrencies() as $row){	
 							array_push($availableCoins,$row['code']);
-							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="alert(\''. $row['code'] .'\');document.getElementById(\'selectedCoin\').innerHTML=\'' . $row['code'] . '\' ;javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedCoin\').innerHTML=\'' . $row['code'] . '\';alert(\''. $row['code'] .'\');javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
 				
 				</div>
 			</div>	
-				<input type="hidden" id="selectedCoin" />
+				<input type="text" id="selectedCoin" />
 		</form>
 		
 		<?php

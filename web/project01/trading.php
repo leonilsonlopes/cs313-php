@@ -1,6 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
+	<?php include 'dbFunctions.php';?>
+	<?php include 'coinFunctions.php';?>
 	<?php include 'header.php';?>
+	<!-- START CUSTOM HEAD AREA -->
+	
+	<!-- CLOSE CUSTOM HEAD AREA -->
 	<?php include 'bodyOpen.php';?>
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
@@ -10,7 +16,22 @@
 		<div class="container">
 			<h2>Trading Area</h2>
 			<div class="panel panel-default">
-				<div class="panel-body">Record or Buy and Sell orders here</div>
+				<div class="panel-body">Record your Buy and Sell orders here</div>
+			</div>
+		</div>
+		
+		<div class="btn-group">			
+			<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu">
+			
+				<?php						
+					foreach (getListOfCurrencies() as $row){						
+						echo '<a class=\"dropdown-item\" href=\"#\"' . $row['code'] . '</a>';						
+					}
+				?>			
+			
 			</div>
 		</div>
 	

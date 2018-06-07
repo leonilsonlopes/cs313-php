@@ -25,13 +25,13 @@
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Select a Coin
 				</button>		
-				<div class="dropdown-menu" name="dropMenuCoins">
+				<div class="dropdown-menu">
 				
 					<?php
 						$availableCoins = array();
 						foreach (getListOfCurrencies() as $row){	
 							array_push($availableCoins,$row['code']);
-							echo '<div class="dropdown-divider"></div><a class="dropdown-item" name="' .$row['code'] . '" value="selected" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+							echo '<div class="dropdown-divider"></div><input class="dropdown-item" name="' .$row['code'] . '" value="selected" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</input>';						
 						}
 					?>			
 				

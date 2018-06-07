@@ -41,6 +41,14 @@
 		<?php
 			 echo "<p><h1> ---:" . $_POST["selectedCoin"] . ":-----</h1></p>";
 			 echo "<br/><br/><p><h1>" . $_POST["clicked"] . "</h1></p>";
+			 
+			 // receive all data in an array
+$fields = $_POST['selectedCoin'];
+  
+// output / process all data
+foreach ($fields as $value) {
+  echo $value;
+}
 		?>
 		
 		<br/><br/>

@@ -31,18 +31,18 @@
 						$selectedCoin;
 						foreach (getListOfCurrencies() as $row){	
 							array_push($availableCoins,$row['code']);
-							echo '<div class="dropdown-divider"></div><input class="dropdown-item" onclick="alert(\'test\');javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</input>';						
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedCoin\').innerHTML=\'' . $row['code'] . '\' ;javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
 				
 				</div>
 			</div>	
-				<input type="hidden" name="clicked" value="TEST"/>
+				<input type="hidden" name="selectedCoin" />
 		</form>
 		
 		<?php
 			echo "<p><h1>" . var_dump($availableCoins) . "</h1></p>";
-			echo "<br/><br/><p><h1>BTC:::: " . $_POST["BTC"] . "</h1></p>";
+			echo "<br/><br/><p><h1>BTC:::: " . selectedCoin . "</h1></p>";
 
 		?>
 		

@@ -37,7 +37,7 @@
 				
 				</div>
 			</div>	
-				<input type="text" id="selectedCoin" onclick="javascript:$(\'form\').submit();"/>
+				<input type="text" id="selectedCoin" onclick="javascript:$('form').submit();"/>
 		</form>
 		
 		<?php

@@ -34,11 +34,13 @@
 					?>			
 				
 				</div>
-			</div>			
+			</div>	
+				<input type="hidden" name="clicked" value="TEST"/>
 		</form>
 		
 		<?php
 			 echo "<p><h1>" . $_POST["selectedCoin"] . "</h1></p>";
+			 echo "<br/><br/><p><h1>" . $_POST["clicked"] . "</h1></p>";
 		?>
 		
 		<br/><br/>

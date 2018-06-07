@@ -35,7 +35,7 @@
 				
 				</div>
 			</div>	
-				<input type="text" id="selectedCoin" value="fixed" />
+				<input type="text" id="selectedCoin" name="selectedCoin" value="fixed" />
 		</form>
 		
 		<?php

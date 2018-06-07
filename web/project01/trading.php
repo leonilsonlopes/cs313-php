@@ -20,20 +20,26 @@
 			</div>
 		</div>
 		<br/><br/>
-		<div class="btn-group">	
-			 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Select a Coin
-			</button>		
-			<div class="dropdown-menu">
-			
-				<?php						
-					foreach (getListOfCurrencies() as $row){						
-						echo '<div class="dropdown-divider"></div><a class="dropdown-item" href="#">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
-					}
-				?>			
-			
-			</div>
-		</div>
+		<form action="trading.php" method="post">
+			<div class="btn-group">	
+				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Select a Coin
+				</button>		
+				<div class="dropdown-menu">
+				
+					<?php						
+						foreach (getListOfCurrencies() as $row){						
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" name="selectedCoin" value="' .$row['code]'. '" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+						}
+					?>			
+				
+				</div>
+			</div>			
+		</form>
+		
+		<?php
+			 echo "<p><h1>" . $_POST["selectedCoin"] . "</h1></p>";
+		?>
 		
 		<br/><br/>
 

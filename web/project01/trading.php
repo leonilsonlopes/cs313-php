@@ -29,7 +29,7 @@
 				
 					<?php						
 						foreach (getListOfCurrencies() as $row){						
-							echo '<div class="dropdown-divider"></div><a class="dropdown-item" name="selectedCoin" value="' .$row['code]'. '" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" name="selectedCoin" value="' .$row['code'] . '" href="javascript:$(\'form\').submit()">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
 				

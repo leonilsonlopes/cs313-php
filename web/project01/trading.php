@@ -28,7 +28,7 @@
 			
 				<?php						
 					foreach (getListOfCurrencies() as $row){						
-						echo '<a class="dropdown-item" href="#">' . $row['code'] . '</a>';						
+						echo '<div class="dropdown-divider"></div><a class="dropdown-item" href="#">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 					}
 				?>			
 			
@@ -36,17 +36,7 @@
 		</div>
 		
 		<br/><br/>
-		
-<div class="btn-group">
-    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </div>
+
 </div>
 	
 

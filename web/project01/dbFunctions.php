@@ -11,8 +11,8 @@ function isCoinInUse($coinCode){
 	$result = $db->prepare('SELECT * FROM currency WHERE code = :coinCode');
 	$result->bindValue(':coinCode', $coinCode);
 	$result->execute();
-	var_dump($result);
-	if(sizeof($result) > 0){
+	
+	if($result->rowCount(); > 0){
 		return true;
 	}else{
 		return false;

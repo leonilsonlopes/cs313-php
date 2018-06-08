@@ -89,7 +89,7 @@
 				
 			
 			<br/>
-			<p><h3><b>Open Buy Orders:</b></h3></p>
+			<p><h3><b>Your wallet:</b></h3></p>
 			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 				<thead>
 					<tr>	
@@ -106,7 +106,7 @@
 			</table>
 		
 			<?php 	
-			/**
+			
 			if($_POST['btnBuyCoin'] == "buyCoin"){				
 				$quantity = floatval($_POST['qtty']);
 				$lastPrice = floatval((getCoinInfo($selectedCoin))['price_usd']);
@@ -114,14 +114,16 @@
 				echo "<br/>quantity: " . $quantity;
 				echo "<br/>lastPrice: " . $lastPrice;
 				echo "<br/>total: " . $total;
+				/**
 				try{
 					saveBuyOrder($$selectedCoin, $lastPrice, $quantity, $total)
 				}catch(Exception $ex){
 					echo "Error while saving buy order: " . $ex;
 					die();
 				}
+				**/
 			}
-			**/				
+							
 		?>
 	
 

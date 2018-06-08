@@ -57,42 +57,25 @@
 
 		<!-- Retrieve Data	-->
 		<?php 
-			foreach (getListOfCurrencies() as $row){
-				$currentCoin = $_POST['selectedCoin'];
-				$coinData = getCoinInfo($currentCoin);
-				
-				$price_usd = 'N/A';				
-				$percent_change_1h = 'N/A';
-				$percent_change_24h = 'N/A';
-				$percent_change_7d = 'N/A';
-				$last_updated = 'N/A';
-				
-				if($coinData['price_usd'] != '') 
-					$price_usd = '$' . $coinData['price_usd'];
-				
-				if($price_usd != 'N/A'){
-					$percent_change_1h = $coinData['percent_change_1h'] . '%';
-					$percent_change_24h = $coinData['percent_change_24h'] . '%';
-					$percent_change_7d = $coinData['percent_change_7d'] . '%';
-					$last_updated = date('m/d/Y h:i:s A', $coinData['last_updated']);
+			foreach (getListOfCurrencies() as $row){				
+				if(strtoupper($row['name']) == strtoupper($_POST['selectedCoin']) ){					
+					echo '<tr>
+					<th scope=\"row\">' . $currentCoin . '</th>				
+					<td>' . $row['name'] . '</td>
+					<td>' . $price_usd . '</td>
+					<td>' . $percent_change_1h . '</td>
+					<td>' . $percent_change_24h . '</td>
+					<td>' . $percent_change_7d . '</td>
+					<td>' . $last_updated . '</td>
+					</tr>';
+					break;
 				}
-					
-				echo '<tr>
-				<th scope=\"row\">' . $currentCoin . '</th>				
-				<td>' . $row['name'] . '</td>
-				<td>' . $price_usd . '</td>
-				<td>' . $percent_change_1h . '</td>
-				<td>' . $percent_change_24h . '</td>
-				<td>' . $percent_change_7d . '</td>
-				<td>' . $last_updated . '</td>
-				</tr>';
-			} 
-			
+			}			
 		?> 
 		
 			</tbody>
 		</table>
-		?>
+	
 		
 		<br/><br/>
 

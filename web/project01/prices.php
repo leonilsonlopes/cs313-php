@@ -62,12 +62,12 @@
 				$last_updated = 'N/A';
 				
 				if($coinData['price_usd'] != '') 
-					$price_usd = '$' . $coinData['price_usd'];
+					$price_usd = $coinData['price_usd'];
 				
 				if($price_usd != 'N/A'){
-					$percent_change_1h = $coinData['percent_change_1h'] . '%';
-					$percent_change_24h = $coinData['percent_change_24h'] . '%';
-					$percent_change_7d = $coinData['percent_change_7d'] . '%';
+					$percent_change_1h = $coinData['percent_change_1h'];
+					$percent_change_24h = $coinData['percent_change_24h'];
+					$percent_change_7d = $coinData['percent_change_7d'];
 					$last_updated = date('m/d/Y h:i:s A', $coinData['last_updated']);
 				}
 					

@@ -7,7 +7,7 @@ function getCoinInfo($coinCode){
 	
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
 		if(strtoupper($coinCode) == strtoupper($coinData[$i]['symbol'])){
-			$coinData[$i]['price_usd'] = '$' . $coinData['price_usd'];
+			$coinData[$i]['price_usd'] = '$' . $coinData[$i]['price_usd'];
 			$coinData[$i]['percent_change_1h'] = $coinData[$i]['percent_change_1h'] . '%';
 			$coinData[$i]['percent_change_24h'] = $coinData[$i]['percent_change_24h'] . '%';
 			$coinData[$i]['percent_change_7d'] = $coinData[$i]['percent_change_7d'] . '%';
@@ -17,6 +17,17 @@ function getCoinInfo($coinCode){
 			continue;
 		}
 	}
+	
+	$notAvailable;
+	
+	$notAvailable->symbol = 'N/A';
+	$notAvailable->price_usd = 'N/A';
+	$notAvailable->percent_change_1h = 'N/A';
+	$notAvailable->percent_change_24h = 'N/A';
+	$notAvailable->percent_change_7d = 'N/A';
+	$notAvailable->last_updated = 'N/A';
+	
+	return $notAvailable;
 		
 }
 ?>

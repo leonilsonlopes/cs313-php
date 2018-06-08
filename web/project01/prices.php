@@ -6,33 +6,7 @@
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	
-			<script type="text/javascript" class="init">
 
-
-$(document).ready(function() {
-	
-	var table = $('#currencies').DataTable();
-
-	$('#currencies').on( 'click', 'tbody tr', function () {
-		if ( $(this).hasClass('selected') ) {
-			$(this).removeClass('selected');
-		}
-		else {
-			table.$('tr.selected').removeClass('selected');
-			$(this).addClass('selected');
-		}
-		
-		$('input[name=id]').val(table.row( this ).data()[0]);
-		$('input[name=code]').val(table.row( this ).data()[1]);
-		$('input[name=name]').val(table.row( this ).data()[2]);
-
-	} );
-
-
-} );
-
-
-	</script>
 	
 	
 	<!-- CLOSE CUSTOM HEAD AREA -->

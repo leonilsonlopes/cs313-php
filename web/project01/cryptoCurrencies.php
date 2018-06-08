@@ -94,6 +94,7 @@ $(document).ready(function() {
 							$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
 							$statement->bindValue(':coinCode', $coinCode);
 							$statement->bindValue(':coinName', $coinName);
+							$statement->execute();
 						}
 					}
 					
@@ -102,14 +103,16 @@ $(document).ready(function() {
 						$statement->bindValue(':coinID', $coinID);
 						$statement->bindValue(':coinCode', $coinCode);
 						$statement->bindValue(':coinName', $coinName);
+						$statement->execute();
 					}
 					
 					if($_POST["btnDeleteCoin"] == "deleteCoin"){
 						$statement = $db->prepare('DELETE FROM currency WHERE id = :coinID');
 						$statement->bindValue(':coinID', $coinID);
+						$statement->execute();
 					}		
 							
-					$statement->execute();
+					
 				}
 			}
 			catch (Exception $ex)

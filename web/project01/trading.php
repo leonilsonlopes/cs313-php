@@ -78,7 +78,7 @@
 		?> 
 		
 		<br/>
-				<form action="trading.php" method="post">
+				<!--<form action="trading.php" method="post">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
@@ -86,13 +86,14 @@
 					<input type="text" id="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 					<button type="submit" class="btn btn-success" name="btnBuyCoin">Buy <b></b> Coin</button>
 				</div>				
-				</form>
+				</form>-->
 			
 			<br/>
 			<p><h3><b>Open Buy Orders:</b></h3></p>
 			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 				<thead>
-					<tr>				
+					<tr>	
+					<th scope="col">ID</th>
 					<th scope="col">Coin Code</th>
 					<th scope="col">Coin Name</th>
 					<th scope="col">USD Price</th>

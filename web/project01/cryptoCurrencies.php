@@ -87,7 +87,7 @@ $(document).ready(function() {
 						if($coinInfo["symbol"] == ""){
 							echo"<br/><br/>
 								<div class=\"alert alert-danger alert-dismissible\">
-									<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+									<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\" onclick=\"javascript:$(\'form\').submit();\">&times;</a>
 									<strong>" . $coinCode . "</strong> coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.
 								</div>";
 						}else{

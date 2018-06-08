@@ -56,8 +56,7 @@
 			<tbody>
 
 		<!-- Retrieve Data	-->
-		<?php 
-		echo "<p><h1>::: " . $_POST['selectedCoin'] . "</h1></p>";
+		<?php 		
 			foreach (getListOfCurrencies() as $row){				
 				if(strtoupper($row['code']) == strtoupper($_POST['selectedCoin']) ){					
 					echo '<tr>

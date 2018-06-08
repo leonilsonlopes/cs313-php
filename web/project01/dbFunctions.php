@@ -18,4 +18,12 @@ function isCoinInUse($coinCode){
 		return false;
 	}
 }
+
+function getAllOpenBuyOrders(){
+	$db = get_db();
+	$result = $db->query('SELECT * FROM buy_order b, trading_history h WHERE h.sell_id IS NULL');
+	return $result;
+}
+
+
 ?>

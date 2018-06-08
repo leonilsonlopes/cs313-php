@@ -63,11 +63,11 @@
 					echo '<tr>
 					<th scope=\"row\">' . $row['code'] . '</th>				
 					<td>' . $row['name'] . '</td>
-					<td>' . $price_usd . '</td>
-					<td>' . $percent_change_1h . '</td>
-					<td>' . $percent_change_24h . '</td>
-					<td>' . $percent_change_7d . '</td>
-					<td>' . $last_updated . '</td>
+					<td>' . $row['price_usd'] . '</td>
+					<td>' . $row['percent_change_1h'] . '</td>
+					<td>' . $row['percent_change_24h'] . '</td>
+					<td>' . $row['percent_change_7d'] . '</td>
+					<td>' . $row['last_updated'] . '</td>
 					</tr>';
 					break;
 				}

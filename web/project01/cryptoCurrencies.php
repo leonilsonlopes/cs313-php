@@ -87,7 +87,7 @@ $(document).ready(function() {
 					if($_POST["btnSaveCoin"] == "addCoin"){
 						
 						$coinInfo = getCoinInfo($coinCode);
-						echo "<p><h1>" . $coinInfo['symbol'] . "</h1></p>" 
+						echo "<p><h1>" . $coinInfo["symbol"] . "</h1></p>" ;
 						//$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
 						//$statement->bindValue(':coinCode', $coinCode);
 						//$statement->bindValue(':coinName', $coinName);

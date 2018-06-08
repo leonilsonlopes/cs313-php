@@ -56,9 +56,10 @@
 			<tbody>
 
 		<!-- Retrieve Data	-->
-		<?php 		
+		<?php 	
+			$selectedCoin = strtoupper($_POST['selectedCoin']);
 			foreach (getListOfCurrencies() as $row){				
-				if(strtoupper($row['code']) == strtoupper($_POST['selectedCoin']) ){
+				if(strtoupper($row['code']) == $selectedCoin ){
 					$coinData = getCoinInfo($row['code']);
 					echo '<tr>
 					<th scope=\"row\">' . $row['code'] . '</th>				
@@ -83,7 +84,7 @@
 					<span class=\"input-group-text\" id=\"inputGroup-sizing-default\">Enter quantity:</span>
 					</div>
 					<input type=\"text\" id=\"qtty\" class=\"form-control\" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">
-					<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\">Buy <b>" . $row['code'] . "</b> Coin</button>
+					<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\">Buy <b>" . $selectedCoin . "</b> Coin</button>
 				</div>				
 				</form>
 				"	;

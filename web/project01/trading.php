@@ -75,7 +75,7 @@
 			}
 			echo "</tbody></table>";
 			
-			/**
+			
 			echo "
 			<br/>
 				<form action=\"trading.php\" method=\"post\">
@@ -88,7 +88,7 @@
 				</div>				
 				</form>
 				"	;
-				**/
+				
 		?> 
 		
 			

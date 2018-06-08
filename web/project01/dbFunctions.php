@@ -6,6 +6,15 @@ function getListOfCurrencies(){
 	return $result;
 }
 
+function saveBuyOrder($coinCode, $price, $quantity, $total){
+	$statement = $db->prepare('INSERT INTO buy_order(currency_id, price, quantity, total) VALUES((select id from currency where code = :coinCode), :price, :quantity, :total)');
+	$statement->bindValue(':coinCode', $coinCode);
+	$statement->bindValue(':price', $price);
+	$statement->bindValue(':quantity', $quantity);
+	$statement->bindValue(':total', $total);
+	$statement->execute();	
+}
+
 function isCoinInUse($coinCode){ 
 	$db = get_db();
 	$result = $db->prepare('SELECT * FROM currency WHERE code = :coinCode');

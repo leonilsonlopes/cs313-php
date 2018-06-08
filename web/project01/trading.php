@@ -58,11 +58,10 @@
 		<!-- Retrieve Data	-->
 		<?php 	
 			$selectedCoin = strtoupper($_POST['selectedCoin']);
-			if($selectedCoin != ""){
-				echo "*****************************";
+			if($selectedCoin != ""){				
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
-						$coinData = getCoinInfo($row['code']);
+						$coinData = getCoinInfo($selectedCoin);
 						echo '<tr>
 						<th scope=\"row\">' . $row['code'] . '</th>				
 						<td>' . $row['name'] . '</td>
@@ -86,7 +85,7 @@
 					<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 					</div>
-					<input type="text" id="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+					<input type="text" name="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 					<button type="submit" class="btn btn-success" name="btnBuyCoin" value="buyCoin">Buy <b><?php echo $selectedCoin ?></b> Coin</button>
 				</div>				
 				
@@ -110,26 +109,21 @@
 		
 			<?php 	
 			
-			if($_POST['btnBuyCoin'] == "buyCoin"){
-				echo "################################";
-				foreach (getListOfCurrencies() as $row){				
-					if(strtoupper($row['code']) == $selectedCoin ){
-						$coinData = getCoinInfo($row['code']);
-						echo '<tr>
-						<th scope=\"row\">' . $row['code'] . '</th>				
-						<td>' . $row['name'] . '</td>
-						<td>' . $coinData['price_usd'] . '</td>
-						<td>' . $coinData['percent_change_1h'] . '</td>
-						<td>' . $coinData['percent_change_24h'] . '</td>
-						<td>' . $coinData['percent_change_7d'] . '</td>
-						<td>' . $coinData['last_updated'] . '</td>
-						</tr>';
-						break;
-					}
+			if($_POST['btnBuyCoin'] == "buyCoin"){				
+				$quantity = floatval($_POST['qtty']);
+				$lastPrice = floatval((getCoinInfo($selectedCoin))['price_usd']);
+				$total = $quantity * $lastPrice;
+				echo "<br/>quantity: " . $quantity;
+				echo "<br/>lastPrice: " . $lastPrice;
+				echo "<br/>total: " . $total;
+				try{
+					saveBuyOrder($$selectedCoin, $lastPrice, $quantity, $total)
+				}catch(Exception $ex){
+					echo "Error while saving buy order: " . $ex;
+					die();
 				}
 			}
-			echo "</tbody></table>";
-				
+							
 		?>
 	
 

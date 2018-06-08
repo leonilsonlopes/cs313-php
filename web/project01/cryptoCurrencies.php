@@ -85,17 +85,16 @@ $(document).ready(function() {
 						
 						$coinInfo = getCoinInfo($coinCode);
 						if($coinInfo["symbol"] == ""){
-							echo"<br/><br/>
-								<div class=\"alert alert-danger alert-dismissible\">
-									<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\" onclick=\"javascript:$(\'form\').submit();\">&times;</a>
-									<strong>" . $coinCode . "</strong> coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.
-								</div>";
+							redAlert("coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.",$coinCode);							
+						}else if(isCoinInUse($coinCode)){
+							redAlert(" is already recorded!",$coinCode);	
 						}else{
 							$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
 							$statement->bindValue(':coinCode', $coinCode);
 							$statement->bindValue(':coinName', $coinName);
 							$statement->execute();
-						}
+						}						
+						
 					}
 					
 					if($_POST["btnUpdateCoin"] == "updateCoin"){

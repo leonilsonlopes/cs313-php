@@ -12,7 +12,7 @@ function isCoinInUse($coinCode){
 	$result->bindValue(':coinCode', $coinCode);
 	$result->execute();
 	
-	if($result->rowCount(); > 0){
+	if($result->rowCount() > 0){
 		return true;
 	}else{
 		return false;

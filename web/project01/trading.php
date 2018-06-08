@@ -74,21 +74,22 @@
 			}
 
 			echo "
+				</tbody>
+			</table>
+			<br/>
 				<form action=\"trading.php\" method=\"post\">
 				<div class=\"input-group mb-3\">
 					<div class=\"input-group-prepend\">
 					<span class=\"input-group-text\" id=\"inputGroup-sizing-default\">Enter quantity:</span>
 					</div>
 					<input type=\"text\" id=\"qtty\" class=\"form-control\" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">
-				</div>
-				<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\">Buy Coin</button>
+					<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\">Buy Coin</button>
+				</div>				
 				</form>
 				"	;
 		?> 
 		
-			</tbody>
-		</table>
-		<br/>
+			
 		
 		
 

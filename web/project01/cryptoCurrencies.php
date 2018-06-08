@@ -65,6 +65,11 @@ $(document).ready(function() {
 			<button type="submit" class="btn btn-danger" value="deleteCoin" name="btnDeleteCoin">Delete Coin</button>
 		</form>
 		
+		<div class="alert alert-danger alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+		</div>
+		
 		<?php 
 			try
 			{
@@ -73,15 +78,18 @@ $(document).ready(function() {
 				if($clicked == "1"){
 				
 					$coinID = $_POST["id"];
-					$coinCode = $_POST["code"];
+					$coinCode = strtoupper($_POST["code"]);
 					$coinName = $_POST["name"];
 					$db = get_db();
 					
 					// Again, first prepare the statement
 					if($_POST["btnSaveCoin"] == "addCoin"){
-						$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
-						$statement->bindValue(':coinCode', $coinCode);
-						$statement->bindValue(':coinName', $coinName);
+						
+						$coinInfo = getCoinInfo($coinCode);
+						echo "<p><h1>" . $coinInfo['symbol'] . "</h1></p>" 
+						//$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+						//$statement->bindValue(':coinCode', $coinCode);
+						//$statement->bindValue(':coinName', $coinName);
 					}
 					
 					if($_POST["btnUpdateCoin"] == "updateCoin"){

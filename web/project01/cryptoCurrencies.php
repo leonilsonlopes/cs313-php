@@ -40,6 +40,7 @@ $(document).ready(function() {
 	<?php include 'breadCrumbs.php';?>
 	<?php include 'dbFunctions.php';?>
 	<?php include 'coinFunctions.php';?>
+	<?php include 'phpAuxFunctions.php';?>
 	<!-- START CONTENT AREA -->
 
 

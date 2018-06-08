@@ -86,14 +86,15 @@ $(document).ready(function() {
 						
 						$coinInfo = getCoinInfo($coinCode);
 						if($coinInfo["symbol"] == ""){
-							redAlert("coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.",$coinCode);							
+							showAlert("coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.",$coinCode,"danger");							
 						}else if(isCoinInUse($coinCode)){
-							redAlert(" is already recorded!",$coinCode);	
+							showAlert(" is already recorded!",$coinCode,"danger");	
 						}else{
 							$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
 							$statement->bindValue(':coinCode', $coinCode);
 							$statement->bindValue(':coinName', $coinName);
 							$statement->execute();
+							showAlert(" successfully recorded!",$coinCode,"success");
 						}						
 						
 					}

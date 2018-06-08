@@ -58,11 +58,11 @@
 				echo '<tr>
 					<th scope=\"row\">' . $row['code'] . '</th>				
 					<td>' . $row['name'] . '</td>
-					<td>' . $coinInfo['price_usd'] . '</td>
-					<td>' . $coinInfo['percent_change_1h'] . '</td>
-					<td>' . $coinInfo['percent_change_24h'] . '</td>
-					<td>' . $coinInfo['percent_change_7d'] . '</td>
-					<td>' . $coinInfo['last_updated'] . '</td>
+					<td>' . $coinData['price_usd'] . '</td>
+					<td>' . $coinData['percent_change_1h'] . '</td>
+					<td>' . $coinData['percent_change_24h'] . '</td>
+					<td>' . $coinData['percent_change_7d'] . '</td>
+					<td>' . $coinData['last_updated'] . '</td>
 					</tr>';
 			} 
 			

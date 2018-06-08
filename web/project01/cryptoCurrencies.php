@@ -88,7 +88,7 @@ $(document).ready(function() {
 							echo"<br/><br/>
 								<div class=\"alert alert-danger alert-dismissible\">
 									<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-									<strong>" . $coinCode . "!</strong> coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.
+									<strong>" . $coinCode . "</strong> coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.
 								</div>";
 						}else{
 							$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');

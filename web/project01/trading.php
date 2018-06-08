@@ -88,8 +88,22 @@
 				</div>				
 				</form>
 			
-			
-		
+			<br/>
+			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+				<thead>
+					<tr>				
+					<th scope="col">Coin Code</th>
+					<th scope="col">Coin Name</th>
+					<th scope="col">USD Price</th>
+					<th scope="col">Last Hour Variation</th>
+					<th scope="col">Last 24hs Variation</th>
+					<th scope="col">Last 7 days Variation</th>
+					<th scope="col">Last Update</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
 		
 
 	

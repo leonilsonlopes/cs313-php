@@ -6,7 +6,7 @@ function getCoinInfo($coinCode){
 	$numCoinbaseCoins = sizeof ($coinData);
 	
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
-		if($coinCode == $coinData[$i]['symbol']){
+		if(strtoupper($coinCode) == strtoupper($coinData[$i]['symbol'])){
 			return $coinData[$i];
 		}else{
 			continue;

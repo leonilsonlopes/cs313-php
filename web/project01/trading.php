@@ -58,15 +58,16 @@
 		<!-- Retrieve Data	-->
 		<?php 		
 			foreach (getListOfCurrencies() as $row){				
-				if(strtoupper($row['code']) == strtoupper($_POST['selectedCoin']) ){					
+				if(strtoupper($row['code']) == strtoupper($_POST['selectedCoin']) ){
+					$coinInfo = getCoinInfo($row['code']);
 					echo '<tr>
 					<th scope=\"row\">' . $row['code'] . '</th>				
 					<td>' . $row['name'] . '</td>
-					<td>' . $row['price_usd'] . '</td>
-					<td>' . $row['percent_change_1h'] . '</td>
-					<td>' . $row['percent_change_24h'] . '</td>
-					<td>' . $row['percent_change_7d'] . '</td>
-					<td>' . $row['last_updated'] . '</td>
+					<td>' . $coinInfo['price_usd'] . '</td>
+					<td>' . $coinInfo['percent_change_1h'] . '</td>
+					<td>' . $coinInfo['percent_change_24h'] . '</td>
+					<td>' . $coinInfo['percent_change_7d'] . '</td>
+					<td>' . $coinInfo['last_updated'] . '</td>
 					</tr>';
 					break;
 				}

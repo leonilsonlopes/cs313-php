@@ -36,7 +36,7 @@
 				</div>
 			</div>	
 				<input type="hidden" id="selectedCoin" name="selectedCoin"/>
-		</form>
+		
 		
 		<br/>
 		<br/>
@@ -84,7 +84,7 @@
 					<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 					</div>
 					<input type="text" id="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-					<button type="submit" class="btn btn-success" name="btnBuyCoin">Buy <b></b> Coin</button>
+					<button type="submit" class="btn btn-success" name="btnBuyCoin">Buy <b><?php echo $selectedCoin ?></b> Coin</button>
 				</div>				
 				<!--</form>-->
 			
@@ -108,7 +108,7 @@
 
 	
 
-	
+	</form>
 	
 	<!-- CLOSE CONTENT AREA -->	
 	

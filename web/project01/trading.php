@@ -73,11 +73,10 @@
 					break;
 				}
 			}
-
+			echo "</tbody></table>";
+			
 			/**
 			echo "
-				</tbody>
-			</table>
 			<br/>
 				<form action=\"trading.php\" method=\"post\">
 				<div class=\"input-group mb-3\">

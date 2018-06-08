@@ -78,7 +78,7 @@
 			</table>
 			<br/>
 				<form action=\"trading.php\" method=\"post\">
-				<div class=\"input-group mb-3\">
+				<div class=\"input-group mb-1\">
 					<div class=\"input-group-prepend\">
 					<span class=\"input-group-text\" id=\"inputGroup-sizing-default\">Enter quantity:</span>
 					</div>

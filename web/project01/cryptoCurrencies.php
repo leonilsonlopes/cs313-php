@@ -66,10 +66,7 @@ $(document).ready(function() {
 			<button type="submit" class="btn btn-danger" value="deleteCoin" name="btnDeleteCoin">Delete Coin</button>
 		</form>
 		
-		<div class="alert alert-danger alert-dismissible">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
-		</div>
+		
 		
 		<?php 
 			try
@@ -87,10 +84,17 @@ $(document).ready(function() {
 					if($_POST["btnSaveCoin"] == "addCoin"){
 						
 						$coinInfo = getCoinInfo($coinCode);
-						echo "<p><h1>" . $coinInfo["symbol"] . "</h1></p>" ;
-						//$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
-						//$statement->bindValue(':coinCode', $coinCode);
-						//$statement->bindValue(':coinName', $coinName);
+						if($coinInfo["symbol"] == ""){
+							echo"
+								<div class=\"alert alert-danger alert-dismissible\">
+									<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+									<strong>" . $coinCode . "!</strong> coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.
+								</div>"
+						}else{
+							$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');
+							$statement->bindValue(':coinCode', $coinCode);
+							$statement->bindValue(':coinName', $coinName);
+						}
 					}
 					
 					if($_POST["btnUpdateCoin"] == "updateCoin"){

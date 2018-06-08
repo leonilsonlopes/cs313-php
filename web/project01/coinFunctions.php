@@ -18,16 +18,5 @@ function getCoinInfo($coinCode){
 		}
 	}
 	
-	$notAvailable;
-	
-	$notAvailable->symbol = 'N/A';
-	$notAvailable->price_usd = 'N/A';
-	$notAvailable->percent_change_1h = 'N/A';
-	$notAvailable->percent_change_24h = 'N/A';
-	$notAvailable->percent_change_7d = 'N/A';
-	$notAvailable->last_updated = 'N/A';
-	
-	return $notAvailable;
-		
 }
 ?>

@@ -39,6 +39,7 @@ $(document).ready(function() {
 	<?php include 'navbar.php';?>
 	<?php include 'breadCrumbs.php';?>
 	<?php include 'dbFunctions.php';?>
+	<?php include 'coinFunctions.php';?>
 	<!-- START CONTENT AREA -->
 
 

@@ -1,8 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<?php include 'dbFunctions.php';?>
-	<?php include 'coinFunctions.php';?>
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	

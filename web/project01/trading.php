@@ -1,8 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<?php include 'dbFunctions.php';?>
-	<?php include 'coinFunctions.php';?>
 	<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	
@@ -108,7 +106,7 @@
 			</table>
 		
 			<?php 	
-			
+			/**
 			if($_POST['btnBuyCoin'] == "buyCoin"){				
 				$quantity = floatval($_POST['qtty']);
 				$lastPrice = floatval((getCoinInfo($selectedCoin))['price_usd']);
@@ -123,7 +121,7 @@
 					die();
 				}
 			}
-							
+			**/				
 		?>
 	
 

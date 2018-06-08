@@ -1,3 +1,6 @@
+<?php include 'dbFunctions.php';?>
+<?php include 'coinFunctions.php';?>
+<?php include 'phpAuxFunctions.php';?>
 <?php
 echo "<head>
   <meta charset=\"utf-8\">

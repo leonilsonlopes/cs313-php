@@ -53,7 +53,6 @@
 		<!-- Retrieve Data	-->
 		<?php 	
 			$selectedCoin = strtoupper($_POST['selectedCoin']);
-			$GLOBALS['buy_selectedCoin'] = $selectedCoin;
 			if($selectedCoin != ""){							
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
@@ -107,15 +106,12 @@
 			</table>
 		
 			<?php 
-			echo "<p>globals: " . $GLOBALS['buy_selectedCoin'] . "</p>";
-			//Keep the selected coin saved
-				echo  "<script type=\"text/javascript\">alert('testeeee');document.getElementById(\'selectedCoin\').value=\'"  . $GLOBALS['buy_selectedCoin'] . "\'; </script>";				
-			
+		
 			if($_POST['btnBuyCoin'] != ""){
 				
 				echo "<p>btnBuyCoin value: " . $_POST['btnBuyCoin'] . "</p>";
 				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfo($_POST['selectedCoin']);
+				$coinInfo = getCoinInfo($_POST['btnBuyCoin']);
 				echo "<p>dump: " . var_dump($coinInfo) . "</p>";
 				$lastPrice = floatval($coinInfo['price_usd']);
 				$total = $quantity * $lastPrice;

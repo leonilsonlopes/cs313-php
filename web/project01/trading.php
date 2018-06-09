@@ -55,7 +55,7 @@
 			$selectedCoin = strtoupper($_POST['selectedCoin']);
 			if($selectedCoin != ""){
 				//Keep the selected coin saved
-				echo  "<script>document.getElementById(\'selectedCoin\').value=\'"  . $selectedCoin . "\'; </script>";				
+				echo  "<script type=\"text/javascript\">document.getElementById(\'selectedCoin\').value=\'"  . $selectedCoin . "\'; </script>";				
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
 						$coinData = getCoinInfo($selectedCoin);

@@ -6,10 +6,20 @@ function getListOfCurrencies(){
 	return $result;
 }
 
+function getWallet(){
+	$db = get_db();
+	try{		
+		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet INNER JOIN currency c ON c.id = w.id');
+		return $result;
+	}catch(Exception $ex){
+		echo "Error while saving buy order: " . $ex;
+		die();
+	}		
+}
+
 function saveBuyOrder($coinCode, $price, $quantity, $total){
 	$db = get_db();
-	try{
-		echo "coinCode: " . $coinCode;
+	try{		
 		$statement = $db->prepare('INSERT INTO buy_order(currency_id, price, quantity, total) VALUES((select id from currency where code = :coinCode), :price, :quantity, :total)');
 		$statement->bindValue(':coinCode', $coinCode);
 		$statement->bindValue(':price', $price);

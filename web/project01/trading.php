@@ -18,31 +18,56 @@
 		<br/>
 		<hr class="style18">
 
-		<!------------------------------------------- WALLET AREA ------------------------------------------->
+		<!------------------------------------------- START WALLET AREA ------------------------------------------->
 		<p><h3><b>YOUR WALLET</b></h3></p>
-			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+			<table id="wallet" class="table table-hover table-striped table-bordered" style="width:100%">
 				<thead>
 					<tr>	
-					<th scope="col">ID</th>
 					<th scope="col">Coin Code</th>
 					<th scope="col">Coin Name</th>
-					<th scope="col">USD Price</th>
 					<th scope="col">Quantity</th>
-					<th scope="col">Total</th>
+					<th scope="col">Total Paid Value</th>
+					<th scope="col">Current Price</th>
+					<th scope="col">Total Current Value</th>
+					<th scope="col">Result</th>
 					</tr>
 				</thead>
 				<tbody>
+				
+				<?php 
+					foreach (getWallet() as $row){
+						$currentCoin = $row['code'];
+						$coinData = getCoinInfoFormat($currentCoin);
+						$floatCurrentPrice = floatval($coinData['price_usd']);
+						$floatPaidValue = floatval($row['paid_value']);
+						$floatTotalCurrentValue = $floatPrice * $floatPaidValue;
+						$result = ((floatTotalCurrentValue / floatPaidValue) -1)*100;
+					
+						echo '<tr>
+							<th scope=\"row\">' . $row['code'] . '</th>				
+							<td>' . $row['name'] . '</td>
+							<td>' . $row['quantity'] . '</td>
+							<td>$' . $floatPaidValue . '</td>
+							<td>$' . $floatCurrentPrice . '</td>
+							<td>$' . $floatTotalCurrentValue . '</td>
+							<td>' . $result . '%</td>
+							</tr>';
+					} 
+			
+				?> 
+				
+				
 				</tbody>
 			</table>
 			
 			
-		<!------------------------------------------- WALLET AREA ------------------------------------------->
+		<!------------------------------------------- END WALLET AREA ------------------------------------------->
 			
 		<br/>
 		<hr class="style18">
 
 		
-		<!------------------------------------------- BUY ORDER AREA ------------------------------------------->
+		<!------------------------------------------- START BUY ORDER AREA ------------------------------------------->
 		<p><h3><b>BUY ORDERS</b></h3></p>
 		<form action="trading.php" method="post">
 
@@ -120,9 +145,7 @@
 					}
 				}
 			}
-			echo "</tbody></table>";
-			
-			
+			echo "</tbody></table>";		
 			
 				
 		?> 
@@ -147,7 +170,7 @@
 		</div>
 
 		
-		<!------------------------------------------- BUY ORDER AREA ------------------------------------------->
+		<!------------------------------------------- END BUY ORDER AREA ------------------------------------------->
 		
 		
 		<br/>
@@ -155,10 +178,10 @@
 		<br/>
 		
 		
-		<!------------------------------------------- SELL ORDER AREA ------------------------------------------->
+		<!------------------------------------------- START SELL ORDER AREA ------------------------------------------->
 		
 		
-		<!------------------------------------------- SELL ORDER AREA ------------------------------------------->
+		<!------------------------------------------- END SELL ORDER AREA ------------------------------------------->
 	
 
 	</form>

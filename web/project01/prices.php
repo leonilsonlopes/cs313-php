@@ -48,7 +48,6 @@
 		<?php 
 			foreach (getListOfCurrencies() as $row){
 				$currentCoin = $row['code'];
-				echo $currentCoin;
 				$coinData = getCoinInfoFormat($currentCoin);
 								
 				echo '<tr>

@@ -47,7 +47,8 @@
 		<form action="trading.php" method="post">
 		<div class="container-fluid">
 		
-		<div class="row"><div class="col-sm-3 col-md-6 col-lg-4" style="background-color:yellow;">
+		<div class="row">
+		<div class="col-sm-3 col-md-6 col-lg-4" style="background-color:yellow;">
 		
 			<div class="btn-group">	
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,9 +65,9 @@
 				</div>				
 			</div>	
 			
-		</div></div>	
+		</div>	
 		
-		<div class="row"><div class="col-sm-3 col-md-6 col-lg-4" style="background-color:green;">
+		<div class="col-sm-3 col-md-6 col-lg-4" style="background-color:green;">
 		
 			<input type="hidden" id="selectedCoin" name="selectedCoin"/>	
 			<div class="input-group mb-3">
@@ -77,7 +78,8 @@
 					<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\" value=\"" . $selectedCoin . "\">Buy <b>" .  $selectedCoin . "</b> Coin</button>"?>
 			</div>		
 		
-		</div></div>
+		</div>
+		</div>
 
 		</div>	
 		

@@ -74,6 +74,10 @@
 				}
 			}
 			echo "</tbody></table>";
+			
+			//Keep the selected coin saved
+			//echo  "<script>document.getElementById(\'selectedCoin\').value=\'"  . $selectedCoin . "\'; </script>";
+			$GLOBALS['buy_selectedCoin'] = $selectedCoin;
 				
 		?> 
 		
@@ -110,7 +114,7 @@
 			if($_POST['btnBuyCoin'] == "buyCoin"){
 				
 				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfo($selectedCoin);
+				$coinInfo = getCoinInfo($buy_selectedCoin);
 				echo "<br/>dump: " . var_dump($coinInfo);
 				$lastPrice = $coinInfo['price_usd'];
 				$total = $quantity * $lastPrice;

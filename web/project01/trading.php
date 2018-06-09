@@ -45,7 +45,10 @@
 		<!------------------------------------------- BUY ORDER AREA ------------------------------------------->
 		<p><h3><b>BUY ORDERS</b></h3></p>
 		<form action="trading.php" method="post">
-
+		<div class="container-fluid">
+		
+		<div class="row">
+		<div class="col-sm-3 col-md-6 col-lg-4">
 		
 			<div class="btn-group">	
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,7 +86,14 @@
 			}
 							
 		?>
-			
+		
+		</br>
+		</br>
+		
+		
+		<div class="row">
+		<div class="col-sm-3 col-md-6 col-lg-4">
+		
 		<p><h5><b>Selected coin information:</b></h5></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
@@ -125,7 +135,9 @@
 			
 				
 		?> 
-		<div class="container-fluid">
+		</div>
+		</div>
+		
 		<div class="row">
 		<div class="col-sm-3 col-md-6 col-lg-4">
 		

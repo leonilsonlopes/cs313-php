@@ -19,7 +19,7 @@
 		<hr class="style18">
 		<br/>
 		<!------------------------------------------- WALLET AREA ------------------------------------------->
-		<p><h3><b>Your wallet:</b></h3></p>
+		<p><h3><b>YOUR WALLET</b></h3></p>
 			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 				<thead>
 					<tr>	
@@ -45,7 +45,7 @@
 		<!------------------------------------------- BUY ORDER AREA ------------------------------------------->
 		<p><h3><b>BUY ORDERS</b></h3></p>
 		<form action="trading.php" method="post">
-		<div class="container">
+		<div class="container-fluid">
 		
 		<div class="row"><div class="col-sm-3 col-md-6 col-lg-4" style="background-color:yellow;">
 		
@@ -101,7 +101,7 @@
 							
 		?>
 			
-		<p><h5><b>Selected coin price:</b></h5></p>
+		<p><h5><b>Selected coin information:</b></h5></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
 				<tr>				

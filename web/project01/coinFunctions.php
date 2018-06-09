@@ -1,6 +1,5 @@
 <?php
-function getCoinInfo($coinCode){
-	echo "<br/>Received coinCode: " . $coinCode;
+function getCoinInfoRaw($coinCode){
 	$coinbasePublicAPI = 'https://api.coinmarketcap.com/v1/ticker/';
 	$coinData = file_get_contents($coinbasePublicAPI);
 	$coinData = json_decode($coinData, true);
@@ -8,16 +7,22 @@ function getCoinInfo($coinCode){
 	
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
 		if(strtoupper($coinCode) == strtoupper($coinData[$i]['symbol'])){
-			$coinData[$i]['price_usd'] = $coinData[$i]['price_usd'];
-			$coinData[$i]['percent_change_1h'] = $coinData[$i]['percent_change_1h'] . '%';
-			$coinData[$i]['percent_change_24h'] = $coinData[$i]['percent_change_24h'] . '%';
-			$coinData[$i]['percent_change_7d'] = $coinData[$i]['percent_change_7d'] . '%';
-			$coinData[$i]['last_updated'] = date('m/d/Y h:i:s A', $coinData[$i]['last_updated']);			
 			return $coinData[$i];
 		}else{
 			continue;
 		}
-	}
+	}	
+}
+
+function getCoinInfoFormat($coinCode){
+	$coinData = getCoinInfoRaw($coinCode);
 	
+	$coinData['price_usd'] = "$" . $coinData[$i]['price_usd'];
+	$coinData['percent_change_1h'] = $coinData[$i]['percent_change_1h'] . '%';
+	$coinData['percent_change_24h'] = $coinData[$i]['percent_change_24h'] . '%';
+	$coinData['percent_change_7d'] = $coinData[$i]['percent_change_7d'] . '%';
+	$coinData['last_updated'] = date('m/d/Y h:i:s A', $coinData[$i]['last_updated']);			
+	
+	return $coinData;
 }
 ?>

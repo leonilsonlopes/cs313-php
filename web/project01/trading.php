@@ -56,7 +56,7 @@
 			if($selectedCoin != ""){							
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
-						$coinData = getCoinInfo($selectedCoin);
+						$coinData = getCoinInfoFormat($selectedCoin);
 						echo '<tr>
 						<th scope=\"row\">' . $row['code'] . '</th>				
 						<td>' . $row['name'] . '</td>
@@ -111,7 +111,7 @@
 				
 				echo "<p>btnBuyCoin value: " . $_POST['btnBuyCoin'] . "</p>";
 				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfo($_POST['btnBuyCoin']);
+				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);
 				echo "<p>dump: " . var_dump($coinInfo) . "</p>";
 				$lastPrice = floatval($coinInfo['price_usd']);
 				$total = $quantity * $lastPrice;

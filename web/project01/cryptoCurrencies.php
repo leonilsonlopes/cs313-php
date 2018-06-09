@@ -78,7 +78,7 @@ $(document).ready(function() {
 					// Again, first prepare the statement
 					if($_POST["btnSaveCoin"] == "addCoin"){
 						
-						$coinInfo = getCoinInfo($coinCode);
+						$coinInfo = getCoinInfoFormat($coinCode);
 						if($coinInfo["symbol"] == ""){
 							showAlert("coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.",$coinCode,"danger");							
 						}else if(isCoinInUse($coinCode)){

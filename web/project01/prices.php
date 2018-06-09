@@ -49,7 +49,7 @@
 			foreach (getListOfCurrencies() as $row){
 				$currentCoin = $row['code'];
 				echo $currentCoin;
-				$coinData = getCoinInfo($currentCoin);
+				$coinData = getCoinInfoFormat($currentCoin);
 								
 				echo '<tr>
 					<th scope=\"row\">' . $row['code'] . '</th>				

@@ -1,7 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-	<?php include 'header.php';?>
+<?php include 'header.php';?>
 	<!-- START CUSTOM HEAD AREA -->
 	
 	<!-- CLOSE CUSTOM HEAD AREA -->
@@ -57,7 +54,7 @@
 		<?php 	
 			$selectedCoin = strtoupper($_POST['selectedCoin']);
 			if($selectedCoin != ""){
-				$GLOBALS['buy_selectedCoin'] = $selectedCoin;				
+				$_SESSION['buy_selectedCoin'] = $selectedCoin;				
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
 						$coinData = getCoinInfo($selectedCoin);
@@ -115,7 +112,7 @@
 			if($_POST['btnBuyCoin'] == "buyCoin"){
 				
 				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfo($buy_selectedCoin);
+				$coinInfo = getCoinInfo($_SESSION['buy_selectedCoin']);
 				echo "<br/>dump: " . var_dump($coinInfo);
 				$lastPrice = $coinInfo['price_usd'];
 				$total = $quantity * $lastPrice;

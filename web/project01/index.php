@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-	<?php include 'header.php';?>
-	<?php include 'bodyOpen.php';?>
-	<?php include 'navbar.php';?>
-	<?php include 'breadCrumbs.php';?>
+<?php include 'header.php';?>
+<?php include 'bodyOpen.php';?>
+<?php include 'navbar.php';?>
+<?php include 'breadCrumbs.php';?>
 
 	<!-- START CONTENT AREA -->
 	  

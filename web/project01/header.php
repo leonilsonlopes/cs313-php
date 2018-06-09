@@ -1,8 +1,13 @@
-<?php include 'dbFunctions.php';?>
-<?php include 'coinFunctions.php';?>
-<?php include 'phpAuxFunctions.php';?>
 <?php
-echo "<head>
+session_start();
+include 'dbFunctions.php';
+include 'coinFunctions.php';
+include 'phpAuxFunctions.php';
+
+echo "
+<!DOCTYPE html>
+<html lang=\"en\">
+	<head>
   <meta charset=\"utf-8\">
   <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
@@ -20,6 +25,5 @@ echo "<head>
   <link href=\"css/sb-admin.css\" rel=\"stylesheet\">
   <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\">";
   
- 
 
 ?>

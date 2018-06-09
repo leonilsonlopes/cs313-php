@@ -48,16 +48,19 @@
 					?>			
 				
 				</div>
-			</div>	
-			<input type="hidden" id="selectedCoin" name="selectedCoin"/>
-					
+				
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 					</div>
 					<input type="text" name="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 					<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\" value=\"" . $selectedCoin . "\">Buy <b>" .  $selectedCoin . "</b> Coin</button>"?>
-				</div>			
+				</div>
+				
+			</div>	
+			<input type="hidden" id="selectedCoin" name="selectedCoin"/>
+					
+							
 			
 
 		
@@ -81,10 +84,6 @@
 							
 		?>
 			
-		
-		
-		<br/>
-		<br/>
 		<p><h3><b>Selected coin price:</b></h3></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>

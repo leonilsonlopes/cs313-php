@@ -113,7 +113,7 @@
 			
 			if($_POST['btnBuyCoin'] != ""){
 				
-				
+				echo "<p>btnBuyCoin value: " . $_POST['btnBuyCoin'] . "</p>";
 				$quantity = floatval($_POST['qtty']);
 				$coinInfo = getCoinInfo($_POST['selectedCoin']);
 				echo "<p>dump: " . var_dump($coinInfo) . "</p>";

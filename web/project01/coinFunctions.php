@@ -12,8 +12,7 @@ function getCoinInfo($coinCode){
 			$coinData[$i]['percent_change_1h'] = $coinData[$i]['percent_change_1h'] . '%';
 			$coinData[$i]['percent_change_24h'] = $coinData[$i]['percent_change_24h'] . '%';
 			$coinData[$i]['percent_change_7d'] = $coinData[$i]['percent_change_7d'] . '%';
-			$coinData[$i]['last_updated'] = date('m/d/Y h:i:s A', $coinData[$i]['last_updated']);
-			echo "<br/>dump: " . var_dump($coinData);
+			$coinData[$i]['last_updated'] = date('m/d/Y h:i:s A', $coinData[$i]['last_updated']);			
 			return $coinData[$i];
 		}else{
 			continue;

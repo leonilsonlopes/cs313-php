@@ -17,11 +17,11 @@ function getCoinInfoRaw($coinCode){
 function getCoinInfoFormat($coinCode){
 	$coinData = getCoinInfoRaw($coinCode);
 	
-	$coinData['price_usd'] = "$" . $coinData[$i]['price_usd'];
-	$coinData['percent_change_1h'] = $coinData[$i]['percent_change_1h'] . '%';
-	$coinData['percent_change_24h'] = $coinData[$i]['percent_change_24h'] . '%';
-	$coinData['percent_change_7d'] = $coinData[$i]['percent_change_7d'] . '%';
-	$coinData['last_updated'] = date('m/d/Y h:i:s A', $coinData[$i]['last_updated']);			
+	$coinData['price_usd'] = "$" . $coinData['price_usd'];
+	$coinData['percent_change_1h'] = $coinData['percent_change_1h'] . '%';
+	$coinData['percent_change_24h'] = $coinData['percent_change_24h'] . '%';
+	$coinData['percent_change_7d'] = $coinData['percent_change_7d'] . '%';
+	$coinData['last_updated'] = date('m/d/Y h:i:s A', $coinData['last_updated']);			
 	
 	return $coinData;
 }

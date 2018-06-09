@@ -92,7 +92,7 @@
 		
 		
 		<div class="row">
-		<div class="col-sm-3 col-md-6 col-lg-4">
+		<div class="col-sm-3 col-md-6 col-lg-12">
 		
 		<p><h5><b>Selected coin information:</b></h5></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">

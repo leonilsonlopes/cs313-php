@@ -111,11 +111,11 @@
 				
 				$quantity = floatval($_POST['qtty']);
 				$coinInfo = getCoinInfo($selectedCoin);
-				//$lastPrice = floatval(()['price_usd']);
-				//$total = $quantity * $lastPrice;
+				$lastPrice = floatval($coinInfo['price_usd']);
+				$total = $quantity * $lastPrice;
 				
-				//echo "<br/>lastPrice: " . $lastPrice;
-				//echo "<br/>total: " . $total;
+				echo "<br/>lastPrice: " . $lastPrice;
+				echo "<br/>total: " . $total;
 				/**
 				try{
 					saveBuyOrder($$selectedCoin, $lastPrice, $quantity, $total)

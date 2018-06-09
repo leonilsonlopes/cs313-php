@@ -109,12 +109,13 @@
 		
 			<?php 	
 			
-			if($_POST['btnBuyCoin'] == "buyCoin"){
+			if($_POST['btnBuyCoin'] == "buyCoin" && $_SESSION['buy_selectedCoin'] != ""){
+				
 				
 				$quantity = floatval($_POST['qtty']);
 				$coinInfo = getCoinInfo($_SESSION['buy_selectedCoin']);
-				echo "<br/>dump: " . var_dump($coinInfo);
-				$lastPrice = $coinInfo['price_usd'];
+				$_SESSION['buy_selectedCoin'] = "";				
+				$lastPrice = floatval($coinInfo['price_usd']);
 				$total = $quantity * $lastPrice;
 				
 				echo "<br/>lastPrice: " . $lastPrice;

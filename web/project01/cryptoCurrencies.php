@@ -51,7 +51,7 @@ $(document).ready(function() {
 				<label for="code">Coin Code:</label>
 				<input type="text" class="form-control" name="code">
 			</div>
-			<div class="w-25 class="form-group">
+			<div class="w-25" class="form-group">
 				<label for="name">Coin Name:</label>
 				<input type="text" class="form-control" name="name">
 			</div>

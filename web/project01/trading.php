@@ -54,7 +54,8 @@
 		<?php 	
 			$selectedCoin = strtoupper($_POST['selectedCoin']);
 			if($selectedCoin != ""){
-				$_SESSION['buy_selectedCoin'] = $selectedCoin;				
+				//Keep the selected coin saved
+				echo  "<script>document.getElementById(\'selectedCoin\').value=\'"  . $selectedCoin . "\'; </script>";				
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
 						$coinData = getCoinInfo($selectedCoin);
@@ -73,8 +74,7 @@
 			}
 			echo "</tbody></table>";
 			
-			//Keep the selected coin saved
-			//echo  "<script>document.getElementById(\'selectedCoin\').value=\'"  . $selectedCoin . "\'; </script>";
+			
 			
 				
 		?> 
@@ -113,8 +113,8 @@
 				
 				
 				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfo($_SESSION['buy_selectedCoin']);
-				$_SESSION['buy_selectedCoin'] = "";				
+				$coinInfo = getCoinInfo($_POST['selectedCoin']);
+				echo "<p>dump: " . var_dump($coinInfo) . "</p>";
 				$lastPrice = floatval($coinInfo['price_usd']);
 				$total = $quantity * $lastPrice;
 				

@@ -30,7 +30,7 @@
 				
 				</div>
 			</div>	
-				<input type="hidden" id="selectedCoin" name="selectedCoin"/>
+				<input type="text" id="selectedCoin" name="selectedCoin"/>
 		
 		
 		<br/>

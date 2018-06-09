@@ -11,10 +11,29 @@
 		<div class="container">
 			<h2>Trading Area</h2>
 			<div class="panel panel-default">
-				<div class="panel-body">Record your Buy and Sell orders here</div>
+				<div class="panel-body">Manage your wallet and record your Buy and Sell orders here</div>
 			</div>
 		</div>
-		<br/><br/>
+		<br/>
+		<hr class="style18">
+		<p><h3><b>Your wallet:</b></h3></p>
+			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+				<thead>
+					<tr>	
+					<th scope="col">ID</th>
+					<th scope="col">Coin Code</th>
+					<th scope="col">Coin Name</th>
+					<th scope="col">USD Price</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Total</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		
+		<hr class="style18">
+		
 		<form action="trading.php" method="post">
 			<div class="btn-group">	
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,12 +49,43 @@
 				
 				</div>
 			</div>	
-				<input type="text" id="selectedCoin" name="selectedCoin"/>
+			<input type="hidden" id="selectedCoin" name="selectedCoin"/>
+					
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
+					</div>
+					<input type="text" name="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+					<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\" value=\"" . $selectedCoin . "\">Buy <b>" .  $selectedCoin . "</b> Coin</button>"?>
+				</div>			
+			
+
+		
+			<?php 
+		
+			if($_POST['btnBuyCoin'] != ""){				
+				
+				$quantity = floatval($_POST['qtty']);
+				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);				
+				$lastPrice = floatval($coinInfo['price_usd']);
+				
+
+				if($quantity > 0){
+					$total = $quantity * $lastPrice;
+					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);
+					showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");		
+				}else{
+					showAlert("cannot be empty or 0", "Quantity ", "danger");
+				}			
+			}
+							
+		?>
+			
 		
 		
 		<br/>
 		<br/>
-		<p><h3><b>Buy Order:</b></h3></p>
+		<p><h3><b>Selected coin price:</b></h3></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
 				<tr>				
@@ -77,53 +127,7 @@
 				
 		?> 
 		
-		<br/>
-				
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-					<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
-					</div>
-					<input type="text" name="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-					<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\" value=\"" . $selectedCoin . "\">Buy <b>" .  $selectedCoin . "</b> Coin</button>"?>
-				</div>				
-				
-			
-			<br/>
-			<p><h3><b>Your wallet:</b></h3></p>
-			<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
-				<thead>
-					<tr>	
-					<th scope="col">ID</th>
-					<th scope="col">Coin Code</th>
-					<th scope="col">Coin Name</th>
-					<th scope="col">USD Price</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Total</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		
-			<?php 
-		
-			if($_POST['btnBuyCoin'] != ""){				
-				
-				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);				
-				$lastPrice = floatval($coinInfo['price_usd']);
-				
-
-				if($quantity > 0){
-					$total = $quantity * $lastPrice;
-					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);
-					showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "danger");		
-				}else{
-					showAlert("cannot be empty or 0", "Quantity ", "danger");
-				}			
-			}
-							
-		?>
+		<hr class="style18">
 	
 
 	</form>

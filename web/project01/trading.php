@@ -107,26 +107,19 @@
 		
 			<?php 
 		
-			if($_POST['btnBuyCoin'] != ""){
+			if($_POST['btnBuyCoin'] != ""){				
 				
-				echo "<p>btnBuyCoin value: " . $_POST['btnBuyCoin'] . "</p>";
 				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);
-				echo "<p>dump: " . var_dump($coinInfo) . "</p>";
+				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);				
 				$lastPrice = floatval($coinInfo['price_usd']);
-				$total = $quantity * $lastPrice;
 				
-				echo "<br/>quantity: " . $quantity;
-				echo "<br/>lastPrice: " . $lastPrice;
-				echo "<br/>total: " . $total;
-				
-				try{
-					saveBuyOrder($selectedCoin, $lastPrice, $quantity, $total);
-				}catch(Exception $ex){
-					echo "Error while saving buy order: " . $ex;
-					die();
-				}
-				
+
+				if($lastPrice > 0){
+					$total = $quantity * $lastPrice;
+					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);			
+				}else{
+					showAlert("cannot be empty or 0", "Quantity ", "danger");
+				}			
 			}
 							
 		?>

@@ -8,13 +8,18 @@ function getListOfCurrencies(){
 
 function saveBuyOrder($coinCode, $price, $quantity, $total){
 	$db = get_db();
-	echo "coinCode: " . $coinCode;
-	$statement = $db->prepare('INSERT INTO buy_order(currency_id, price, quantity, total) VALUES((select id from currency where code = :coinCode), :price, :quantity, :total)');
-	$statement->bindValue(':coinCode', $coinCode);
-	$statement->bindValue(':price', $price);
-	$statement->bindValue(':quantity', $quantity);
-	$statement->bindValue(':total', $total);
-	$statement->execute();	
+	try{
+		echo "coinCode: " . $coinCode;
+		$statement = $db->prepare('INSERT INTO buy_order(currency_id, price, quantity, total) VALUES((select id from currency where code = :coinCode), :price, :quantity, :total)');
+		$statement->bindValue(':coinCode', $coinCode);
+		$statement->bindValue(':price', $price);
+		$statement->bindValue(':quantity', $quantity);
+		$statement->bindValue(':total', $total);
+		$statement->execute();
+	}catch(Exception $ex){
+		echo "Error while saving buy order: " . $ex;
+		die();
+	}		
 }
 
 function isCoinInUse($coinCode){ 

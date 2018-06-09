@@ -55,6 +55,7 @@ $(document).ready(function() {
 				<label for="name">Coin Name:</label>
 				<input type="text" class="form-control" name="name">
 			</div>
+			<br/>
 			<input type="hidden" name="clicked" value="1"/>
 			<button type="submit" class="btn btn-success" value="addCoin" name="btnSaveCoin">Add Coin</button>
 			<button type="submit" class="btn btn-primary" value="updateCoin" name="btnUpdateCoin">Update Coin</button>

@@ -9,7 +9,7 @@ function getListOfCurrencies(){
 function getWallet(){
 	$db = get_db();
 	try{		
-		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet INNER JOIN currency c ON c.id = w.id');
+		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet w INNER JOIN currency c ON c.id = w.id');
 		return $result;
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . $ex;

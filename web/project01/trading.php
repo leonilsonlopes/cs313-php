@@ -110,11 +110,12 @@
 			if($_POST['btnBuyCoin'] == "buyCoin"){
 				
 				$quantity = floatval($_POST['qtty']);
-				$lastPrice = floatval((getCoinInfo($selectedCoin))['price_usd']);
-				$total = $quantity * $lastPrice;
+				$coinInfo = getCoinInfo($selectedCoin);
+				//$lastPrice = floatval(()['price_usd']);
+				//$total = $quantity * $lastPrice;
 				
-				echo "<br/>lastPrice: " . $lastPrice;
-				echo "<br/>total: " . $total;
+				//echo "<br/>lastPrice: " . $lastPrice;
+				//echo "<br/>total: " . $total;
 				/**
 				try{
 					saveBuyOrder($$selectedCoin, $lastPrice, $quantity, $total)

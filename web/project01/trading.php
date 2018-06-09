@@ -121,7 +121,7 @@
 				echo "<br/>total: " . $total;
 				
 				try{
-					saveBuyOrder($$selectedCoin, $lastPrice, $quantity, $total)
+					saveBuyOrder($selectedCoin, $lastPrice, $quantity, $total);
 				}catch(Exception $ex){
 					echo "Error while saving buy order: " . $ex;
 					die();

@@ -150,13 +150,9 @@
 				
 		?> 
 		
-		<div class="container-fluid">
-		
-			<div class="row">
-			<div class="col-sm-3 col-md-6 col-lg-4">
-		
-				<input type="hidden" id="selectedCoin" name="selectedCoin"/>	
-				<div class="input-group mb-3">
+				<input type="hidden" id="selectedCoin" name="selectedCoin"/>
+						
+				<div class="w-25" class="input-group mb-3">
 						<div class="input-group-prepend">
 						<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 						</div>
@@ -164,10 +160,6 @@
 						<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnBuyCoin\" value=\"" . $selectedCoin . "\">Buy <b>" .  $selectedCoin . "</b> Coin</button>"?>
 				</div>	
 
-			</div>
-			</div>
-		
-		</div>
 
 		
 		<!------------------------------------------- END BUY ORDER AREA ------------------------------------------->

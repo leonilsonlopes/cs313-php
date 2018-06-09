@@ -8,7 +8,7 @@ function getCoinInfo($coinCode){
 	
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
 		if(strtoupper($coinCode) == strtoupper($coinData[$i]['symbol'])){
-			$coinData[$i]['price_usd'] = '$' . $coinData[$i]['price_usd'];
+			$coinData[$i]['price_usd'] = $coinData[$i]['price_usd'];
 			$coinData[$i]['percent_change_1h'] = $coinData[$i]['percent_change_1h'] . '%';
 			$coinData[$i]['percent_change_24h'] = $coinData[$i]['percent_change_24h'] . '%';
 			$coinData[$i]['percent_change_7d'] = $coinData[$i]['percent_change_7d'] . '%';

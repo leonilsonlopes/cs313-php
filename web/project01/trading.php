@@ -109,7 +109,7 @@
 		
 			<?php 	
 			
-			if($_POST['btnBuyCoin'] == "buyCoin" && $_SESSION['buy_selectedCoin'] != ""){
+			if($_POST['btnBuyCoin'] == "buyCoin"){
 				
 				
 				$quantity = floatval($_POST['qtty']);

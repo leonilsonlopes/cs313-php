@@ -31,9 +31,9 @@
 				<tbody>
 				</tbody>
 			</table>
-		
+		<br/>
 		<hr class="style18">
-		
+		<br/>
 		<form action="trading.php" method="post">
 			<div class="btn-group">	
 				<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,7 +126,9 @@
 				
 		?> 
 		
+		<br/>
 		<hr class="style18">
+		<br/>
 	
 
 	</form>

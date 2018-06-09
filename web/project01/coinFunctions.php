@@ -5,7 +5,7 @@ function getCoinInfo($coinCode){
 	$coinData = file_get_contents($coinbasePublicAPI);
 	$coinData = json_decode($coinData, true);
 	$numCoinbaseCoins = sizeof ($coinData);
-	echo "<br/>dump: " . var_dump(coinData);
+	echo "<br/>dump: " . var_dump($coinData);
 	for ( $i=0; $i<$numCoinbaseCoins; $i++) {   
 		if(strtoupper($coinCode) == strtoupper($coinData[$i]['symbol'])){
 			$coinData[$i]['price_usd'] = '$' . $coinData[$i]['price_usd'];

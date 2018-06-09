@@ -89,27 +89,7 @@
 
 
 		
-			<?php 
-		
-			if($_POST['btnBuyCoin'] != ""){				
-				
-				$quantity = floatval($_POST['qtty']);
-				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);				
-				$lastPrice = floatval($coinInfo['price_usd']);
-				
-
-				if($quantity > 0){
-					$total = $quantity * $lastPrice;
-					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);
-					showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");		
-				}else{
-					showAlert("cannot be empty or 0", "Quantity ", "danger");
-				}			
-			}
-							
-		?>
-		
-		
+	
 		<p><h5><b>Selected coin information:</b></h5></p>
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
@@ -151,6 +131,26 @@
 		?> 
 		
 				<input type="hidden" id="selectedCoin" name="selectedCoin"/>
+				
+		<?php 
+		
+			if($_POST['btnBuyCoin'] != ""){				
+				
+				$quantity = floatval($_POST['qtty']);
+				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);				
+				$lastPrice = floatval($coinInfo['price_usd']);
+				
+
+				if($quantity > 0){
+					$total = $quantity * $lastPrice;
+					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);
+					showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");		
+				}else{
+					showAlert("cannot be empty or 0", "Quantity ", "danger");
+				}			
+			}
+							
+		?>
 						
 				<div class="w-50" class="input-group mb-3">
 						<div class="input-group-prepend">

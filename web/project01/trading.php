@@ -111,7 +111,7 @@
 				
 				$quantity = floatval($_POST['qtty']);
 				$coinInfo = getCoinInfo($selectedCoin);
-				$lastPrice = floatval($coinInfo['price_usd']);
+				$lastPrice = $coinInfo['price_usd'];
 				$total = $quantity * $lastPrice;
 				
 				echo "<br/>lastPrice: " . $lastPrice;

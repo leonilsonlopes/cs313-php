@@ -56,7 +56,8 @@
 		<!-- Retrieve Data	-->
 		<?php 	
 			$selectedCoin = strtoupper($_POST['selectedCoin']);
-			if($selectedCoin != ""){				
+			if($selectedCoin != ""){
+				$GLOBALS['buy_selectedCoin'] = $selectedCoin;				
 				foreach (getListOfCurrencies() as $row){				
 					if(strtoupper($row['code']) == $selectedCoin ){
 						$coinData = getCoinInfo($selectedCoin);
@@ -77,7 +78,7 @@
 			
 			//Keep the selected coin saved
 			//echo  "<script>document.getElementById(\'selectedCoin\').value=\'"  . $selectedCoin . "\'; </script>";
-			$GLOBALS['buy_selectedCoin'] = $selectedCoin;
+			
 				
 		?> 
 		

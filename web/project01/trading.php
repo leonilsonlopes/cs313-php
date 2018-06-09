@@ -110,8 +110,6 @@
 			if($_POST['btnBuyCoin'] == "buyCoin"){
 				
 				$quantity = floatval($_POST['qtty']);
-				echo "<br/>quantity: " . $quantity;
-				/**
 				$lastPrice = floatval((getCoinInfo($selectedCoin))['price_usd']);
 				$total = $quantity * $lastPrice;
 				

@@ -116,6 +116,7 @@
 				$lastPrice = floatval($coinInfo['price_usd']);
 				$total = $quantity * $lastPrice;
 				
+				echo "<br/>quantity: " . $quantity;
 				echo "<br/>lastPrice: " . $lastPrice;
 				echo "<br/>total: " . $total;
 				/**

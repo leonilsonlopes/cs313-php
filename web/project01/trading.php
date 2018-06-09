@@ -114,9 +114,10 @@
 				$lastPrice = floatval($coinInfo['price_usd']);
 				
 
-				if($lastPrice > 0){
+				if($quantity > 0){
 					$total = $quantity * $lastPrice;
-					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);			
+					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity, $total);
+					showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "danger");		
 				}else{
 					showAlert("cannot be empty or 0", "Quantity ", "danger");
 				}			

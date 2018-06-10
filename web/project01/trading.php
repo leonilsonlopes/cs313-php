@@ -42,7 +42,7 @@
 						$floatCurrentPrice = floatval($coinData['price_usd']);
 						$floatPaidValue = floatval($row['paid_value']);
 						$floatTotalCurrentValue = $floatCurrentPrice * $currentQuantity;
-						$result = ((floatTotalCurrentValue / floatPaidValue) - 1)*100;
+						$result = (($floatTotalCurrentValue / $floatPaidValue) - 1)*100;
 					
 						echo '<tr>
 							<th scope=\"row\">' . $row['code'] . '</th>				

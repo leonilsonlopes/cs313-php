@@ -6,7 +6,7 @@ function getListOfCurrencies(){
 	$result = $db->query('SELECT * FROM currency');
 	return $result;
 }
-
+/**
 function getWallet(){
 	$db = get_db();
 	try{		
@@ -104,5 +104,5 @@ function getCoinFromWallet($coinCode){
 	}		
 }
 
-
+**/
 ?>

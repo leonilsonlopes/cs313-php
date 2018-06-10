@@ -45,7 +45,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
 		$totalPaid = $price * $quantity;
-		$statement = $db->prepare('INSERT INTO wallet(code, name, price, quantity, total) VALUES(:coinCode, (SELECT name FROM currency WHERE code = :coinCode), :price, :quantity, :total)');
+		$statement = $db->prepare('INSERT INTO buy_order(code, name, price, quantity, total) VALUES(:coinCode, (SELECT name FROM currency WHERE code = :coinCode), :price, :quantity, :total)');
 		$statement->bindValue(':coinCode', $coinCode);
 		$statement->bindValue(':price', $price);
 		$statement->bindValue(':quantity', $quantity);

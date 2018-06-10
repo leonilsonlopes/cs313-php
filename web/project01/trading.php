@@ -183,7 +183,7 @@
 				<div class="dropdown-menu">
 				
 					<?php
-						foreach (getListOfCurrencies() as $row){	
+						foreach (getListFromWallet() as $row){	
 							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedCoin\').value=\'' . $row['code'] . '\';javascript:$(\'form\').submit();">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
@@ -195,7 +195,7 @@
 		
 	
 		<p><h5><b>Selected coin information:</b></h5></p>
-		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+		<table id="selectedSellCoin" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
 				<tr>				
 				<th scope="col">Coin Code</th>

@@ -56,19 +56,6 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-**/
-function isCoinInUse($coinCode){ 
-	$db = get_db();
-	$result = $db->prepare('SELECT * FROM currency WHERE code = :coinCode');
-	$result->bindValue(':coinCode', $coinCode);
-	$result->execute();
-	
-	if($result->rowCount() > 0){
-		return true;
-	}else{
-		return false;
-	}
-}
 
 function isCoinInWallet($coinCode){
 	$db = get_db();
@@ -102,6 +89,22 @@ function getCoinFromWallet($coinCode){
 		echo "Error while saving buy order: " . $ex;
 		die();
 	}		
+}
+
+
+**/
+
+function isCoinInUse($coinCode){ 
+	$db = get_db();
+	$result = $db->prepare('SELECT * FROM currency WHERE code = :coinCode');
+	$result->bindValue(':coinCode', $coinCode);
+	$result->execute();
+	
+	if($result->rowCount() > 0){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 

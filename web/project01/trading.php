@@ -142,8 +142,7 @@
 				
 
 				if($quantity > 0){					
-					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity);
-					showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");		
+					saveBuyOrder($_POST['btnBuyCoin'], $lastPrice, $quantity);						
 				}else{
 					showAlert("cannot be empty or 0", "Quantity ", "danger");
 				}			

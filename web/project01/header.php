@@ -1,8 +1,8 @@
 <?php
 session_start();
-include 'dbFunctions.php';
-include 'coinFunctions.php';
-include 'phpAuxFunctions.php';
+//include 'dbFunctions.php';
+//include 'coinFunctions.php';
+//include 'phpAuxFunctions.php';
 
 echo "
 <!DOCTYPE html>

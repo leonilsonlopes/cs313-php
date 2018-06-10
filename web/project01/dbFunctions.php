@@ -9,23 +9,47 @@ function getListOfCurrencies(){
 function getWallet(){
 	$db = get_db();
 	try{		
-		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet w INNER JOIN currency c ON c.id = w.id');
+		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet w INNER JOIN currency c ON c.code = w.code');
 		return $result;
 	}catch(Exception $ex){
-		echo "Error while saving buy order: " . $ex;
+		echo "Error while saving retrieving wallet: " . $ex;
 		die();
 	}		
 }
 
-function saveBuyOrder($coinCode, $price, $quantity, $total){
+function updateWallet($coinCode, $quantity, $totalPaid){
 	$db = get_db();
-	try{		
-		$statement = $db->prepare('INSERT INTO buy_order(currency_id, price, quantity, total) VALUES((select id from currency where code = :coinCode), :price, :quantity, :total)');
+	try{
+		if(isCoinInUse($coinCode)){
+			
+		}else{
+			$statement = $db->prepare('INSERT INTO wallet(coinCode, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
+			$statement->bindValue(':coinCode', $coinCode);
+			$statement->bindValue(':quantity', $quantity);
+			$statement->bindValue(':paid_value', $totalPaid);
+			$statement->execute();
+		}
+
+	}catch(Exception $ex){
+		echo "Error while updating in wallet: " . $ex;
+		die();
+	}		
+}
+
+function saveBuyOrder($coinCode, $price, $quantity){
+	$db = get_db();
+	try{	
+		$totalPaid = $price * $quantity;
+		$statement = $db->prepare('INSERT INTO buy_order(coinCode, price, quantity, total) VALUES(:coinCode, :price, :quantity, :total)');
 		$statement->bindValue(':coinCode', $coinCode);
 		$statement->bindValue(':price', $price);
 		$statement->bindValue(':quantity', $quantity);
-		$statement->bindValue(':total', $total);
+		$statement->bindValue(':total', $totalPaid);
 		$statement->execute();
+		
+		//Add to wallet
+		updateWallet($coinCode, $quantity, $totalPaid);
+		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . $ex;
 		die();
@@ -45,10 +69,38 @@ function isCoinInUse($coinCode){
 	}
 }
 
-function getAllOpenBuyOrders(){
+function isCoinInWallet($coinCode){
 	$db = get_db();
-	$result = $db->query('SELECT * FROM buy_order b, trading_history h WHERE h.sell_id IS NULL');
-	return $result;
+	try{	
+		$result = $db->prepare('SELECT id FROM wallet WHERE code = :coinCode');
+		$result->bindValue(':coinCode', $coinCode);
+		$result->execute();
+		
+		if($result->rowCount() > 0){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}catch(Exception $ex){
+		echo "Error while saving buy order: " . $ex;
+		die();
+	}		
+}
+
+function getCoinFromWallet($coinCode){
+	$db = get_db();
+	try{	
+		$result = $db->prepare('SELECT * FROM wallet WHERE code = :coinCode');
+		$result->bindValue(':coinCode', $coinCode);
+		$result->execute();
+		
+		retun $result;
+		
+	}catch(Exception $ex){
+		echo "Error while saving buy order: " . $ex;
+		die();
+	}		
 }
 
 

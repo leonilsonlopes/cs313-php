@@ -45,7 +45,7 @@
 					<td>$' . $row['price'] . '</td>
 					<td>' . $row['quantity'] . '</td>
 					<td>$' . $row['total'] . '</td>
-					<td>' . $row['date'] . '%</td>
+					<td>' . $row['date'] . '</td>
 					</tr>';
 			} 
 			
@@ -89,7 +89,7 @@
 					<td>$' . $row['total'] . '</td>
 					<td>$' . $row['result'] . '</td>
 					<td>' . $row['percent_result'] . '%</td>
-					<td>' . $row['date'] . '%</td>
+					<td>' . $row['date'] . '</td>
 					</tr>';
 			} 
 			

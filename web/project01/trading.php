@@ -37,7 +37,7 @@
 				<?php 
 					foreach (getWallet() as $row){
 						$currentCoin = $row['code'];
-						$coinData = getCoinInfoFormat($currentCoin);
+						$coinData = getCoinInfoRaw($currentCoin);
 						$floatCurrentPrice = floatval($coinData['price_usd']);
 						$floatPaidValue = floatval($row['paid_value']);
 						$floatTotalCurrentValue = $floatPrice * $floatPaidValue;

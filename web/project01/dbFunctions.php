@@ -33,8 +33,6 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 				showAlert(" - last coins sold. Remove from wallet.", $coinCode, "success");
 			}else{			
 				$walletResult = getCoinFromWallet($coinCode);
-				echo "<p>" . var_dump($walletResult) . "</p>";
-				echo "<p>#######: " + $walletResult['paid_value'] . "</p>";
 				showAlert(" - existing coin successfully updated to your wallet.", $coinCode, "success");
 			}
 			

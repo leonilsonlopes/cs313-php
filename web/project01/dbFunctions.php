@@ -6,7 +6,7 @@ function getListOfCurrencies(){
 	$result = $db->query('SELECT * FROM currency');
 	return $result;
 }
-/**
+
 function getCoinFromCurrency($coinCode){
 	$db = get_db();
 	try{	
@@ -21,7 +21,7 @@ function getCoinFromCurrency($coinCode){
 		die();
 	}		
 }
-**/
+
 function getWallet(){
 	$db = get_db();
 	try{		
@@ -113,7 +113,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-
+**/
 function saveSellOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
@@ -151,7 +151,7 @@ function saveSellOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-**/
+
 function isCoinInWallet($coinCode){
 	$db = get_db();
 	try{	

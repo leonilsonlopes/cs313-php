@@ -36,14 +36,16 @@ function getWallet(){
 function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 	$db = get_db();
 	try{
-		if($operation == "sell"){
-			$quantity = -$quantity;
-			$totalPaid = -$totalPaid;
-		}			
+				
 		
 		if(isCoinInWallet($coinCode)){
-			echo "<p>isCoinInWallet: TRUE</p>";
-			if($quantity == 0 || $quantity < 0){
+			
+			$walletResult = getCoinFromWallet($coinCode);
+			$existingPaidValue = $walletResult['paid_value'];
+			$existingQuantity = $walletResult['quantity'];
+			
+			if($operation == "sell" && ($existingQuantity - $quantity) <= 0){
+				
 				$statement = $db->prepare('DELETE FROM wallet WHERE currency_id IN (SELECT id FROM currency WHERE code = :coinCode) ');
 				$statement->bindValue(':coinCode', $coinCode);
 				$statement->bindValue(':quantity', $quantity);
@@ -52,18 +54,20 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 				
 				showAlert(" - last coins sold. Remove from wallet.", $coinCode, "success");
 				
-			}else{		
-			
-				$walletResult = getCoinFromWallet($coinCode);
-				$existingPaidValue = $walletResult['paid_value'];
-				$existingQuantity = $walletResult['quantity'];
+			}else{				
 				
-				echo "<p>wallet: " . var_dump($walletResult) . "</p>";
-				
+					
 				$statement = $db->prepare('UPDATE wallet SET quantity=:quantity, paid_value=:paid_value WHERE id = :id');
 				$statement->bindValue(':id', $walletResult['id']);
-				$statement->bindValue(':quantity', $existingQuantity + $quantity);
-				$statement->bindValue(':paid_value', $existingPaidValue + $totalPaid);
+				if($operation == "sell"){
+					$statement->bindValue(':quantity', $existingQuantity - $quantity);
+					$statement->bindValue(':paid_value', $existingPaidValue - $totalPaid);
+				}else{
+					$statement->bindValue(':quantity', $existingQuantity + $quantity);
+					$statement->bindValue(':paid_value', $existingPaidValue + $totalPaid);
+				}
+				
+				
 				
 				echo "<p>id: " . $walletResult['id'] . "</p>";
 				echo "<p>quantity: " . $quantity + $existingQuantity . "</p>";
@@ -147,10 +151,10 @@ function saveSellOrder($coinCode, $price, $quantity){
 		
 		$statement->execute();
 		
-		showAlert(" sell successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");	
+		showAlert(" sell successfully recorded.", $quantity . " " . $_POST['btnSellCoin'], "success");	
 		
 		//update wallet
-		updateWallet($coinCode, $walletQuantity - $quantity, $totalPaid, "sell");
+		updateWallet($coinCode, $quantity, $totalPaid, "sell");
 		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . var_dump($ex);

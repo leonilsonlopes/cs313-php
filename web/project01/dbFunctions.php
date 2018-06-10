@@ -22,7 +22,7 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 	$db = get_db();
 	try{
 		if(isCoinInWallet($coinCode)){
-			
+			echo "<p>isCoinInWallet: TRUE</p>";
 			if($quantity = 0 || $quantity < 0){
 				$statement = $db->prepare('DELETE FROM wallet WHERE currency_id IN (SELECT id FROM currency WHERE code = :coinCode) ');
 				$statement->bindValue(':coinCode', $coinCode);
@@ -33,11 +33,14 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 				showAlert(" - last coins sold. Remove from wallet.", $coinCode, "success");
 			}else{			
 				$walletResult = getCoinFromWallet($coinCode);
-				echo "#######: " + $walletResult['paid_value'];
+				echo "<p>" . var_dump($walletResult) . "</p>";
+				echo "<p>#######: " + $walletResult['paid_value'] . "</p>";
 				showAlert(" - existing coin successfully updated to your wallet.", $coinCode, "success");
 			}
 			
 		}else{
+			echo "<p>isCoinInWallet: FALSE</p>";
+			
 			$statement = $db->prepare('INSERT INTO wallet(currency_id, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
 			$statement->bindValue(':coinCode', $coinCode);
 			$statement->bindValue(':quantity', $quantity);

@@ -18,6 +18,8 @@
 		<br/>
 		<hr class="style18">
 
+		<form action="trading.php" method="post">
+		
 		<!------------------------------------------- START WALLET AREA ------------------------------------------->
 		<p><h3><b>YOUR WALLET</b></h3></p>
 			<table id="wallet" class="table table-hover table-striped table-bordered" style="width:100%">
@@ -70,7 +72,7 @@
 		
 		<!------------------------------------------- START BUY ORDER AREA ------------------------------------------->
 		<p><h3><b>BUY ORDERS</b></h3></p>
-		<form action="trading.php" method="post">
+		
 
 		
 			<div class="btn-group">	

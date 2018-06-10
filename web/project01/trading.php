@@ -212,6 +212,7 @@
 		<!-- Retrieve Data	-->
 		<?php 	
 			$selectedSellCoin = strtoupper($_POST['selectedSellCoin']);
+			echo "<p>selected sell coin: " . $selectedSellCoin . "</p>";
 			if($selectedSellCoin != ""){							
 				foreach (getListFromWallet() as $row){				
 					if(strtoupper($row['code']) == $selectedSellCoin ){
@@ -240,7 +241,7 @@
 		
 			if($_POST['btnSellCoin'] != ""){				
 				
-				$quantity = floatval($_POST['qtty']);
+				$quantity = floatval($_POST['qttySell']);
 				$coinInfo = getCoinInfoRaw($_POST['btnSellCoin']);				
 				$lastPrice = floatval($coinInfo['price_usd']);
 				
@@ -258,7 +259,7 @@
 						<div class="input-group-prepend">
 						<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 						</div>
-						<input type="text" name="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+						<input type="text" name="qttySell" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 						<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnSellCoin\" value=\"" . $selectedSellCoin . "\">Buy <b>" .  $selectedSellCoin . "</b> Coin</button>"?>
 				</div>	
 		

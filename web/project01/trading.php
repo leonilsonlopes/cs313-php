@@ -27,7 +27,7 @@
 					<th scope="col">Coin Name</th>
 					<th scope="col">Quantity</th>
 					<th scope="col">Total Paid Value</th>
-					<th scope="col">Current Price</th>
+					<th scope="col">Current Price Per Unit</th>
 					<th scope="col">Total Current Value</th>
 					<th scope="col">Result</th>
 					</tr>
@@ -38,15 +38,16 @@
 					foreach (getWallet() as $row){
 						$currentCoin = $row['code'];
 						$coinData = getCoinInfoRaw($currentCoin);
+						$currentQuantity = floatval($row['quantity']);
 						$floatCurrentPrice = floatval($coinData['price_usd']);
 						$floatPaidValue = floatval($row['paid_value']);
-						$floatTotalCurrentValue = $floatCurrentPrice * $floatPaidValue;
+						$floatTotalCurrentValue = $floatCurrentPrice * $currentQuantity;
 						$result = ((floatTotalCurrentValue / floatPaidValue) -1)*100;
 					
 						echo '<tr>
 							<th scope=\"row\">' . $row['code'] . '</th>				
 							<td>' . $row['name'] . '</td>
-							<td>' . $row['quantity'] . '</td>
+							<td>' . currentQuantity . '</td>
 							<td>$' . $floatPaidValue . '</td>
 							<td>$' . $floatCurrentPrice . '</td>
 							<td>$' . $floatTotalCurrentValue . '</td>

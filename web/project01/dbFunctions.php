@@ -22,7 +22,8 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 	$db = get_db();
 	try{
 		if(isCoinInUse($coinCode)){
-			
+			$walletResult = getCoinFromWallet($coinCode);
+			echo "#######: " + $walletResult['paid_value'];
 		}else{
 			$statement = $db->prepare('INSERT INTO wallet(coinCode, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
 			$statement->bindValue(':coinCode', $coinCode);
@@ -56,7 +57,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-/**
+
 function isCoinInWallet($coinCode){
 	$db = get_db();
 	try{	
@@ -83,7 +84,7 @@ function getCoinFromWallet($coinCode){
 		$result->bindValue(':coinCode', $coinCode);
 		$result->execute();
 		
-		retun $result;
+		return $result;
 		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . $ex;
@@ -92,7 +93,7 @@ function getCoinFromWallet($coinCode){
 }
 
 
-**/
+
 
 function isCoinInUse($coinCode){ 
 	$db = get_db();

@@ -33,9 +33,14 @@ function getWallet(){
 	}		
 }
 
-function updateWallet($coinCode, $quantity, $totalPaid){
+function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 	$db = get_db();
 	try{
+		if($operation == "sell"){
+			$quantity = -$quantity;
+			$totalPaid = -$totalPaid;
+		}			
+		
 		if(isCoinInWallet($coinCode)){
 			echo "<p>isCoinInWallet: TRUE</p>";
 			if($quantity == 0 || $quantity < 0){
@@ -46,6 +51,7 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 				$statement->execute();
 				
 				showAlert(" - last coins sold. Remove from wallet.", $coinCode, "success");
+				
 			}else{		
 			
 				$walletResult = getCoinFromWallet($coinCode);
@@ -56,7 +62,7 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 				
 				$statement = $db->prepare('UPDATE wallet SET quantity=:quantity, paid_value=:paid_value WHERE id = :id');
 				$statement->bindValue(':id', $walletResult['id']);
-				$statement->bindValue(':quantity', $quantity + $existingQuantity);
+				$statement->bindValue(':quantity', $existingQuantity + $quantity);
 				$statement->bindValue(':paid_value', $existingPaidValue + $totalPaid);
 				
 				echo "<p>id: " . $walletResult['id'] . "</p>";
@@ -106,7 +112,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		showAlert(" purchase successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");	
 		
 		//Add to wallet
-		updateWallet($coinCode, $quantity, $totalPaid);
+		updateWallet($coinCode, $quantity, $totalPaid, "buy");
 		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . var_dump($ex);
@@ -125,7 +131,7 @@ function saveSellOrder($coinCode, $price, $quantity){
 		$result = $totalPaid - ($price_wallet * $quantity);
 		
 		if($quantity > $walletQuantity){
-			showAlert(" - you can't sell more coins than you have.", "NOT ENOUGH COINS", "success");	
+			showAlert(" - you can't sell more coins than you have.", "NOT ENOUGH COINS", "danger");	
 			return;
 		}
 		
@@ -144,7 +150,7 @@ function saveSellOrder($coinCode, $price, $quantity){
 		showAlert(" sell successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");	
 		
 		//update wallet
-		updateWallet($coinCode, $walletQuantity - $quantity, $totalPaid);
+		updateWallet($coinCode, $walletQuantity - $quantity, $totalPaid, "sell");
 		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . var_dump($ex);

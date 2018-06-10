@@ -260,7 +260,7 @@
 						<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 						</div>
 						<input type="text" name="qttySell" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-						<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnSellCoin\" value=\"" . $selectedSellCoin . "\">Buy <b>" .  $selectedSellCoin . "</b> Coin</button>"?>
+						<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnSellCoin\" value=\"" . $selectedSellCoin . "\">Sell <b>" .  $selectedSellCoin . "</b> Coin</button>"?>
 				</div>	
 		
 		

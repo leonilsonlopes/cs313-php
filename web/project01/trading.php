@@ -184,7 +184,7 @@
 				
 					<?php
 						foreach (getListFromWallet() as $row){	
-							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedCoin\').value=\'' . $row['code'] . '\';javascript:$(\'form\').submit();">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
+							echo '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="document.getElementById(\'selectedSellCoin\').value=\'' . $row['code'] . '\';javascript:$(\'form\').submit();">' . $row['code'] . ' - ' . $row['name'] .'</a>';						
 						}
 					?>			
 				
@@ -211,11 +211,11 @@
 
 		<!-- Retrieve Data	-->
 		<?php 	
-			$selectedCoin = strtoupper($_POST['selectedCoin']);
-			if($selectedCoin != ""){							
+			$selectedSellCoin = strtoupper($_POST['selectedSellCoin']);
+			if($selectedSellCoin != ""){							
 				foreach (getListFromWallet() as $row){				
-					if(strtoupper($row['code']) == $selectedCoin ){
-						$coinData = getCoinInfoFormat($selectedCoin);
+					if(strtoupper($row['code']) == $selectedSellCoin ){
+						$coinData = getCoinInfoFormat($selectedSellCoin);
 						echo '<tr>
 						<th scope=\"row\">' . $row['code'] . '</th>				
 						<td>' . $row['name'] . '</td>
@@ -234,7 +234,7 @@
 				
 		?> 
 		
-				<input type="hidden" id="selectedCoin" name="selectedCoin"/>
+				<input type="hidden" id="selectedSellCoin" name="selectedSellCoin"/>
 				
 		<?php 
 		
@@ -259,7 +259,7 @@
 						<span class="input-group-text" id="inputGroup-sizing-default">Enter quantity:</span>
 						</div>
 						<input type="text" name="qtty" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-						<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnSellCoin\" value=\"" . $selectedCoin . "\">Buy <b>" .  $selectedCoin . "</b> Coin</button>"?>
+						<?php echo "<button type=\"submit\" class=\"btn btn-success\" name=\"btnSellCoin\" value=\"" . $selectedSellCoin . "\">Buy <b>" .  $selectedSellCoin . "</b> Coin</button>"?>
 				</div>	
 		
 		

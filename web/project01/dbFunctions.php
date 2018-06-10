@@ -56,7 +56,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-
+**/
 function isCoinInUse($coinCode){ 
 	$db = get_db();
 	$result = $db->prepare('SELECT * FROM currency WHERE code = :coinCode');
@@ -104,5 +104,5 @@ function getCoinFromWallet($coinCode){
 	}		
 }
 
-**/
+
 ?>

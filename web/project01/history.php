@@ -88,7 +88,7 @@
 					<td>' . $row['quantity'] . '</td>
 					<td>$' . $row['total'] . '</td>
 					<td>$' . $row['result'] . '</td>
-					<td>' . $row['percent_result'] . '%</td>
+					<td>' . round($row['percent_result'],2) . '%</td>
 					<td>' . $row['date'] . '</td>
 					</tr>';
 			} 

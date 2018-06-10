@@ -85,7 +85,7 @@ $(document).ready(function() {
 						$coinInfo = getCoinInfoFormat($coinCode);
 						if($coinInfo["symbol"] == ""){
 							showAlert("coin symbol is not valid! Please enter a valid coin. To check valid coins, refer to https://coinmarketcap.com/.",$coinCode,"danger");							
-						}else if(isCoinInUse($coinCode)){
+						}else if(isCoinInRecorded($coinCode)){
 							showAlert(" is already recorded!",$coinCode,"danger");	
 						}else{
 							$statement = $db->prepare('INSERT INTO currency(code, name) VALUES(:coinCode, :coinName)');

@@ -107,7 +107,7 @@ $(document).ready(function() {
 					if($_POST["btnDeleteCoin"] == "deleteCoin"){
 						
 						if(isCoinInWallet($coinCode)){
-							showAlert(" you cannot delete a coin if you hold it in your wallet. Sell all coins before removing it.",$coinCode . " is in your wallet!","success");
+							showAlert(" you cannot delete a coin present in your wallet. Sell all coins before removing it.",$coinCode . " is in your wallet!","danger");
 						}else{
 						
 							$statement = $db->prepare('DELETE FROM currency WHERE code = :coinCode');

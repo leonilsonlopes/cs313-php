@@ -88,13 +88,6 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 				}
 				
 				
-				
-				echo "<p>id: " . $walletResult['id'] . "</p>";
-				echo "<p>quantity: " . $quantity + $existingQuantity . "</p>";
-				echo "<p>paid: " . $existingPaidValue + $totalPaid . "</p>";
-				
-				echo "<p>statement: " . var_dump(statement) . "</p>";
-				
 				$statement->execute();
 								
 				showAlert(" existing coin successfully updated in your wallet.", $coinCode, "success");

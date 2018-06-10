@@ -105,9 +105,15 @@ $(document).ready(function() {
 					}
 					
 					if($_POST["btnDeleteCoin"] == "deleteCoin"){
-						$statement = $db->prepare('DELETE FROM currency WHERE code = :coinCode');
-						$statement->bindValue(':coinCode', $coinCode);
-						$statement->execute();
+						
+						if(isCoinInWallet($coinCode)){
+							showAlert(" you cannot delete a coin if you hold it in your wallet. Sell all coins before removing it.",$coinCode . " is in your wallet!","success");
+						}else{
+						
+							$statement = $db->prepare('DELETE FROM currency WHERE code = :coinCode');
+							$statement->bindValue(':coinCode', $coinCode);
+							$statement->execute();
+						}
 					}		
 							
 					

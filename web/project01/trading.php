@@ -74,8 +74,8 @@
 
 		
 			<div class="btn-group">	
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Select a Coin
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Select a Coin to BUY
 				</button>		
 				<div class="dropdown-menu">
 				
@@ -177,8 +177,8 @@
 
 		
 			<div class="btn-group">	
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Select a Coin
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Select a Coin to SELL
 				</button>		
 				<div class="dropdown-menu">
 				

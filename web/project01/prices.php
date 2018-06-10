@@ -17,9 +17,9 @@
 				<div class="panel-body">Follow up the lastest price of your coins here.</div>
 			</div>
 		</div>
-		
 				<br/>
-		<br/>
+		<hr class="style18">
+
 		<p><h4><b>Price Information:</b></h4></p>
 		<p>New information available each 5 minutes.</p>
 		

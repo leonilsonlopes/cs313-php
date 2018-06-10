@@ -22,6 +22,28 @@ function getCoinFromCurrency($coinCode){
 	}		
 }
 
+function getAllBuyOrders(){
+	$db = get_db();
+	try{		
+		$result = $db->query('SELECT * FROM buy_order');
+		return $result;
+	}catch(Exception $ex){
+		echo "Error while retrieving buy orders: " . $ex;
+		die();
+	}
+}
+
+function getAllSellOrders(){
+	$db = get_db();
+	try{		
+		$result = $db->query('SELECT * FROM sell_order');
+		return $result;
+	}catch(Exception $ex){
+		echo "Error while retrieving sell orders: " . $ex;
+		die();
+	}
+}
+
 function getWallet(){
 	$db = get_db();
 	try{		
@@ -198,8 +220,7 @@ function getCoinFromWallet($coinCode){
 function getListFromWallet(){
 	$db = get_db();
 	try{	
-		$result = $db->query('SELECT c.code, c.name, w.* FROM wallet w INNER JOIN currency c ON c.id = w.currency_id');
-	
+		$result = $db->query('SELECT c.code, c.name, w.* FROM wallet w INNER JOIN currency c ON c.id = w.currency_id');	
 		return $result;
 		
 	}catch(Exception $ex){

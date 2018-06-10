@@ -16,7 +16,82 @@
 			</div>
 		</div>
 	
+		<br/>
+		<hr class="style18">
+		
+		
+		<p><h3><b>BUY ORDERS</b></h3></p>
+		
+		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+			<thead>
+				<tr>				
+				<th scope="col">Coin Code</th>
+				<th scope="col">Coin Name</th>
+				<th scope="col">Sell Price</th>
+				<th scope="col">Quantity</th>
+				<th scope="col">Total Value</th>
+				</tr>
+			</thead>
+			<tbody>
 
+		<!-- Retrieve Data	-->
+		<?php 
+			foreach (getAllBuyOrders() as $row){
+								
+				echo '<tr>
+					<th scope=\"row\">' . $row['code'] . '</th>				
+					<td>' . $row['name'] . '</td>
+					<td>$' . $row['price'] . '</td>
+					<td>' . $row['quantity'] . '</td>
+					<td>$' . $row['total'] . '</td>
+					</tr>';
+			} 
+			
+		?> 
+			</tbody>
+		</table>
+		
+		
+		<br/>
+		<hr class="style18">
+		
+		
+		<p><h3><b>SELL ORDERS</b></h3></p>
+		
+		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
+			<thead>
+				<tr>				
+				<th scope="col">Coin Code</th>
+				<th scope="col">Coin Name</th>
+				<th scope="col">Wallet Price (Buy Price)</th>
+				<th scope="col">Sell Price</th>
+				<th scope="col">Quantity</th>
+				<th scope="col">Total Value</th>
+				<th scope="col">Result</th>
+				<th scope="col">Percent Result</th>
+				</tr>
+			</thead>
+			<tbody>
+
+		<!-- Retrieve Data	-->
+		<?php 
+			foreach (getAllSellOrders() as $row){
+								
+				echo '<tr>
+					<th scope=\"row\">' . $row['code'] . '</th>				
+					<td>' . $row['name'] . '</td>
+					<td>$' . $row['price_wallet'] . '</td>
+					<td>$' . $row['sell_price'] . '</td>
+					<td>' . $row['quantity'] . '</td>
+					<td>$' . $row['total'] . '</td>
+					<td>$' . $row['result'] . '</td>
+					<td>' . $row['percent_result'] . '%</td>
+					</tr>';
+			} 
+			
+		?> 
+			</tbody>
+		</table>
 
 	
 	<!-- CLOSE CONTENT AREA -->	

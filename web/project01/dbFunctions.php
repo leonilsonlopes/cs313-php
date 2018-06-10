@@ -109,7 +109,7 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 		die();
 	}
 
-	header("Refresh:0");	
+	header("Refresh:0; url=trading.php");	
 }
 
 

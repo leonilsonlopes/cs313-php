@@ -40,9 +40,9 @@
 					foreach (getWallet() as $row){
 						$currentCoin = $row['code'];
 						$coinData = getCoinInfoRaw($currentCoin);
-						$currentQuantity = floatval($row['quantity']);
-						$floatCurrentPrice = floatval($coinData['price_usd']);
-						$floatPaidValue = floatval($row['paid_value']);
+						$currentQuantity = round(floatval($row['quantity']),4);
+						$floatCurrentPrice = round(floatval($coinData['price_usd']),4);
+						$floatPaidValue = round(floatval($row['paid_value']),4);
 						$floatTotalCurrentValue = $floatCurrentPrice * $currentQuantity;
 						$result = (($floatTotalCurrentValue / $floatPaidValue) - 1)*100;
 					
@@ -139,9 +139,9 @@
 		
 			if($_POST['btnBuyCoin'] != ""){				
 				
-				$quantity = floatval($_POST['qtty']);
+				$quantity = round(floatval($_POST['qtty']),4);
 				$coinInfo = getCoinInfoRaw($_POST['btnBuyCoin']);				
-				$lastPrice = floatval($coinInfo['price_usd']);
+				$lastPrice = round(floatval($coinInfo['price_usd']),4);
 				
 
 				if($quantity > 0){					
@@ -243,9 +243,9 @@
 		
 			if($_POST['btnSellCoin'] != ""){				
 				
-				$quantity = floatval($_POST['qttySell']);
+				$quantity = round(floatval($_POST['qttySell']),4);
 				$coinInfo = getCoinInfoRaw($_POST['btnSellCoin']);				
-				$lastPrice = floatval($coinInfo['price_usd']);
+				$lastPrice = round(floatval($coinInfo['price_usd']),4);
 				
 
 				if($quantity > 0){					

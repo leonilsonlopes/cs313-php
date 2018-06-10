@@ -145,8 +145,8 @@ function saveSellOrder($coinCode, $price, $quantity){
 		$totalPaid = $price * $quantity;
 		$coinFromWallet = getCoinFromWallet($coinCode);
 		$name = $coinFromWallet['name'];
-		$walletQuantity = floatval($coinFromWallet['quantity']);
-		$price_wallet = floatval($coinFromWallet['paid_value']) / floatval($coinFromWallet['quantity']);
+		$walletQuantity = round(floatval($coinFromWallet['quantity']),4);
+		$price_wallet = round(floatval($coinFromWallet['paid_value']),4) / round(floatval($coinFromWallet['quantity']),4);
 		$result = $totalPaid - ($price_wallet * $quantity);
 		
 		if($quantity > $walletQuantity){

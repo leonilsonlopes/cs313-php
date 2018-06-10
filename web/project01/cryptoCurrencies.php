@@ -43,7 +43,10 @@ $(document).ready(function() {
 				<div class="panel-body">Manage the crypto coin you want to follow here</div>
 			</div>
 		</div>
-	
+		
+		<br/>
+		<hr class="style18">
+		
 		<form action="cryptoCurrencies.php" method="post">
 			<input type="hidden" name="id"/>
 			<div class="w-25" class="form-group">

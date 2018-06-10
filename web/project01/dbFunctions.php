@@ -96,7 +96,7 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 	}		
 }
 
-/**
+
 function saveBuyOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
@@ -121,7 +121,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-**/
+
 function saveSellOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	

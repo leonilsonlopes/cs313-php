@@ -10,7 +10,7 @@ function getListOfCurrencies(){
 function getWallet(){
 	$db = get_db();
 	try{		
-		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet w INNER JOIN currency c ON c.code = w.currency_code');
+		$result = $db->query('SELECT c.code, c.name, w.quantity, w.paid_value FROM wallet w INNER JOIN currency c ON c.id = w.currency_id');
 		return $result;
 	}catch(Exception $ex){
 		echo "Error while saving retrieving wallet: " . $ex;
@@ -24,12 +24,15 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 		if(isCoinInUse($coinCode)){
 			$walletResult = getCoinFromWallet($coinCode);
 			echo "#######: " + $walletResult['paid_value'];
+			showAlert(" - existing coin successfully updated to your wallet.", $coinCode, "success");
 		}else{
 			$statement = $db->prepare('INSERT INTO wallet(coinCode, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
 			$statement->bindValue(':coinCode', $coinCode);
 			$statement->bindValue(':quantity', $quantity);
 			$statement->bindValue(':paid_value', $totalPaid);
 			$statement->execute();
+			showAlert(" - new coin successfully added to your wallet.", $coinCode, "success");
+					
 		}
 
 	}catch(Exception $ex){

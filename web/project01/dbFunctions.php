@@ -26,7 +26,7 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 			echo "#######: " + $walletResult['paid_value'];
 			showAlert(" - existing coin successfully updated to your wallet.", $coinCode, "success");
 		}else{
-			$statement = $db->prepare('INSERT INTO wallet(code, name, quantity, paid_value) VALUES(:coinCode, (SELECT name FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
+			$statement = $db->prepare('INSERT INTO wallet(currency_id, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
 			$statement->bindValue(':coinCode', $coinCode);
 			$statement->bindValue(':quantity', $quantity);
 			$statement->bindValue(':paid_value', $totalPaid);
@@ -45,7 +45,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
 		$totalPaid = $price * $quantity;
-		$statement = $db->prepare('INSERT INTO buy_order(coinCode, price, quantity, total) VALUES(:coinCode, :price, :quantity, :total)');
+		$statement = $db->prepare('INSERT INTO wallet(code, name, price, quantity, total) VALUES(:coinCode, (SELECT name FROM currency WHERE code = :coinCode), :price, :quantity, :total)');
 		$statement->bindValue(':coinCode', $coinCode);
 		$statement->bindValue(':price', $price);
 		$statement->bindValue(':quantity', $quantity);

@@ -195,7 +195,7 @@
 		
 	
 		<p><h5><b>Selected coin information:</b></h5></p>
-		<table id="selectedSellCoin" class="table table-hover table-striped table-bordered" style="width:100%">
+		<table id="tableSelectedSellCoin" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
 				<tr>				
 				<th scope="col">Coin Code</th>

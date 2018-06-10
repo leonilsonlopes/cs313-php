@@ -40,7 +40,7 @@
 						$coinData = getCoinInfoRaw($currentCoin);
 						$floatCurrentPrice = floatval($coinData['price_usd']);
 						$floatPaidValue = floatval($row['paid_value']);
-						$floatTotalCurrentValue = $floatPrice * $floatPaidValue;
+						$floatTotalCurrentValue = $floatCurrentPrice * $floatPaidValue;
 						$result = ((floatTotalCurrentValue / floatPaidValue) -1)*100;
 					
 						echo '<tr>

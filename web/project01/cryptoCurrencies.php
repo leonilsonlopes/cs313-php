@@ -124,7 +124,7 @@ $(document).ready(function() {
 		<table id="currencies" class="table table-hover table-striped table-bordered" style="width:100%">
 			<thead>
 				<tr>
-				<th style="display:none;" scope="col">ID</th>				
+				<th scope="col">ID</th>				
 				<th scope="col">Coin Code</th>
 				<th scope="col">Coin Name</th>
 				</tr>
@@ -135,7 +135,7 @@ $(document).ready(function() {
 		<?php 			
 			foreach (getListOfCurrencies() as $row){
 				echo '<tr>
-				<th style="display:none;" scope="row">' . $row['id'] . '</th>	
+				<th scope=\"row\">' . $row['id'] . '</th>	
 				<td>' . $row['code'] . '</td>				
 				<td>' . $row['name'] . '</td>
 				</tr>';

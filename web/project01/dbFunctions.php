@@ -36,7 +36,7 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 				$walletResult = $walletResult->fetch();
 				//$paidValue = $walletResult['paid_value'];
 				//$quantity = $walletResult['quantity'];
-				echo "<p> results::: " . $walletResult . " --- " . $quantity . "</p>";
+				echo "<p> results::: " . var_dump($walletResult) . " --- " . $quantity . "</p>";
 				
 				showAlert(" existing coin successfully updated to your wallet.", $coinCode, "success");
 			}

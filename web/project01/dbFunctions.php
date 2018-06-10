@@ -48,8 +48,6 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 				
 				$statement = $db->prepare('DELETE FROM wallet WHERE currency_id IN (SELECT id FROM currency WHERE code = :coinCode) ');
 				$statement->bindValue(':coinCode', $coinCode);
-				$statement->bindValue(':quantity', $quantity);
-				$statement->bindValue(':paid_value', $totalPaid);
 				$statement->execute();
 				
 				showAlert(" - last coins sold. Remove from wallet.", $coinCode, "success");

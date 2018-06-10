@@ -212,7 +212,7 @@
 		<!-- Retrieve Data	-->
 		<?php 	
 			$selectedSellCoin = strtoupper($_POST['selectedSellCoin']);
-			echo "<p>selected sell coin: " . $selectedSellCoin . "</p>";
+			
 			if($selectedSellCoin != ""){							
 				foreach (getListFromWallet() as $row){				
 					if(strtoupper($row['code']) == $selectedSellCoin ){

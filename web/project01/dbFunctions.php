@@ -22,9 +22,20 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 	$db = get_db();
 	try{
 		if(isCoinInUse($coinCode)){
-			$walletResult = getCoinFromWallet($coinCode);
-			echo "#######: " + $walletResult['paid_value'];
-			showAlert(" - existing coin successfully updated to your wallet.", $coinCode, "success");
+			
+			if($quantity = 0 || $quantity < 0){
+				$statement = $db->prepare('DELETE FROM wallet WHERE currency_id IN (SELECT id FROM currency WHERE code = :coinCode) ');
+				$statement->bindValue(':coinCode', $coinCode);
+				$statement->bindValue(':quantity', $quantity);
+				$statement->bindValue(':paid_value', $totalPaid);
+				$statement->execute();
+				
+				showAlert(" - last coins sold. Remove from wallet.", $coinCode, "success");
+			}else{			
+				$walletResult = getCoinFromWallet($coinCode);
+				echo "#######: " + $walletResult['paid_value'];
+				showAlert(" - existing coin successfully updated to your wallet.", $coinCode, "success");
+			}
 		}else{
 			$statement = $db->prepare('INSERT INTO wallet(currency_id, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
 			$statement->bindValue(':coinCode', $coinCode);
@@ -83,7 +94,7 @@ function isCoinInWallet($coinCode){
 function getCoinFromWallet($coinCode){
 	$db = get_db();
 	try{	
-		$result = $db->prepare('SELECT * FROM wallet WHERE code = :coinCode');
+		$result = $db->prepare('SELECT c.code, c.name, w.* FROM wallet INNER JOIN currency c ON c.id = w.currency_id AND c.code = :coinCode');
 		$result->bindValue(':coinCode', $coinCode);
 		$result->execute();
 		

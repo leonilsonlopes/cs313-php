@@ -112,7 +112,7 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-
+/**
 function saveSellOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
@@ -121,7 +121,7 @@ function saveSellOrder($coinCode, $price, $quantity){
 		$name = $coinFromWallet['name'];
 		$walletQuantity = floatval($coinFromWallet['quantity']);
 		$price_wallet = floatval($coinFromWallet['paid_value']) / floatval($coinFromWallet['quantity']);
-		$result = ($price * $quantity) - ($price_wallet * $quantity);
+		$result = $totalPaid - ($price_wallet * $quantity);
 		
 		if($quantity > $walletQuantity){
 			showAlert(" - you can't sell more coins than you have.", "NOT ENOUGH COINS", "success");	
@@ -136,7 +136,7 @@ function saveSellOrder($coinCode, $price, $quantity){
 		$statement->bindValue(':quantity', $quantity);
 		$statement->bindValue(':total', $price * $quantity);
 		$statement->bindValue(':result', $result);
-		$statement->bindValue(':percent_result', ((($price * $quantity) / ($price_wallet * $quantity)) - 1) * 100 );
+		$statement->bindValue(':percent_result', (($totalPaid / ($price_wallet * $quantity)) - 1) * 100 );
 		
 		$statement->execute();
 		
@@ -150,7 +150,7 @@ function saveSellOrder($coinCode, $price, $quantity){
 		die();
 	}		
 }
-
+**/
 function isCoinInWallet($coinCode){
 	$db = get_db();
 	try{	

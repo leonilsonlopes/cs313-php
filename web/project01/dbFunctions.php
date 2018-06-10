@@ -107,7 +107,9 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 	}catch(Exception $ex){
 		echo "Error while updating in wallet: " . $ex;
 		die();
-	}		
+	}
+
+	header("Refresh:0");	
 }
 
 

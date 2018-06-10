@@ -7,6 +7,21 @@ function getListOfCurrencies(){
 	return $result;
 }
 
+function getCoinFromCurrency($coinCode){
+	$db = get_db();
+	try{	
+		$result = $db->prepare('SELECT * FROM currency WHERE code = :coinCode');
+		$result->bindValue(':coinCode', $coinCode);
+		$result->execute();
+		
+		return $result->fetch();
+		
+	}catch(Exception $ex){
+		echo "Error while saving buy order: " . $ex;
+		die();
+	}		
+}
+
 function getWallet(){
 	$db = get_db();
 	try{		
@@ -34,7 +49,6 @@ function updateWallet($coinCode, $quantity, $totalPaid){
 			}else{		
 			
 				$walletResult = getCoinFromWallet($coinCode);
-				$walletResult = $walletResult->fetch();
 				$existingPaidValue = $walletResult['paid_value'];
 				$existingQuantity = $walletResult['quantity'];
 				
@@ -78,8 +92,10 @@ function saveBuyOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
 		$totalPaid = $price * $quantity;
-		$statement = $db->prepare('INSERT INTO buy_order(code, price, quantity, total) VALUES(:coinCode, :price, :quantity, :total)');
+		$name = (getCoinFromCurrency($coinCode))['name'];
+		$statement = $db->prepare('INSERT INTO buy_order(code, name, price, quantity, total) VALUES(:coinCode, :name, :price, :quantity, :total)');
 		$statement->bindValue(':coinCode', $coinCode);
+		$statement->bindValue(':name', $name);
 		$statement->bindValue(':price', $price);
 		$statement->bindValue(':quantity', $quantity);
 		$statement->bindValue(':total', $totalPaid);
@@ -90,6 +106,44 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		
 		//Add to wallet
 		updateWallet($coinCode, $quantity, $totalPaid);
+		
+	}catch(Exception $ex){
+		echo "Error while saving buy order: " . var_dump($ex);
+		die();
+	}		
+}
+
+function saveSellOrder($coinCode, $price, $quantity){
+	$db = get_db();
+	try{	
+		$totalPaid = $price * $quantity;
+		$coinFromWallet = getCoinFromWallet($coinCode);
+		$name = $coinFromWallet['name'];
+		$walletQuantity = floatval($coinFromWallet['quantity']);
+		$price_wallet = floatval($coinFromWallet['paid_value']) / floatval($coinFromWallet['quantity']);
+		$result = ($price * $quantity) - ($price_wallet * $quantity);
+		
+		if($quantity > $walletQuantity){
+			showAlert(" - you can't sell more coins than you have.", "NOT ENOUGH COINS", "success");	
+			return;
+		}
+		
+		$statement = $db->prepare('INSERT INTO sell_order(code, name, price_wallet, price_sell, quantity, total, result, percent_result) VALUES(:coinCode, :name, :price_wallet, :price_sell, :quantity, :total, :result, :percent_result)');
+		$statement->bindValue(':coinCode', $coinCode);
+		$statement->bindValue(':name', $name);
+		$statement->bindValue(':price_wallet', $price_wallet);
+		$statement->bindValue(':price_sell', $price);
+		$statement->bindValue(':quantity', $quantity);
+		$statement->bindValue(':total', $price * $quantity);
+		$statement->bindValue(':result', $result);
+		$statement->bindValue(':percent_result', ((($price * $quantity) / ($price_wallet * $quantity)) - 1) * 100 );
+		
+		$statement->execute();
+		
+		showAlert(" sell successfully recorded.", $quantity . " " . $_POST['btnBuyCoin'], "success");	
+		
+		//update wallet
+		updateWallet($coinCode, $walletQuantity - $quantity, $totalPaid);
 		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . var_dump($ex);
@@ -123,10 +177,23 @@ function getCoinFromWallet($coinCode){
 		$result->bindValue(':coinCode', $coinCode);
 		$result->execute();
 		
-		return $result;
+		return $result->fetch();
 		
 	}catch(Exception $ex){
 		echo "Error while saving buy order: " . $ex;
+		die();
+	}		
+}
+
+function getListFromWallet(){
+	$db = get_db();
+	try{	
+		$result = $db->query('SELECT c.code, c.name, w.* FROM wallet w INNER JOIN currency c ON c.id = w.currency_id');
+	
+		return $result;
+		
+	}catch(Exception $ex){
+		echo "Error while getting list of coins from wallet: " . $ex;
 		die();
 	}		
 }

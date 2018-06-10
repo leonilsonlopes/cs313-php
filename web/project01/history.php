@@ -83,12 +83,12 @@
 				echo '<tr>
 					<th scope=\"row\">' . $row['code'] . '</th>				
 					<td>' . $row['name'] . '</td>
-					<td>$' . $row['price_wallet'] . '</td>
-					<td>$' . $row['price_sell'] . '</td>
+					<td>$' . round($row['price_wallet'],4) . '</td>
+					<td>$' . round($row['price_sell'],4) . '</td>
 					<td>' . $row['quantity'] . '</td>
-					<td>$' . $row['total'] . '</td>
-					<td>$' . $row['result'] . '</td>
-					<td>' . round($row['percent_result'],2) . '%</td>
+					<td>$' . round($row['total'],4) . '</td>
+					<td>$' . round($row['result'],4) . '</td>
+					<td>' . round($row['percent_result'],4) . '%</td>
 					<td>' . $row['date'] . '</td>
 					</tr>';
 			} 

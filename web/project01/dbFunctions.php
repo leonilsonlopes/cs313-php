@@ -94,8 +94,7 @@ function updateWallet($coinCode, $quantity, $totalPaid, $operation){
 			}
 			
 		}else{
-			echo "<p>isCoinInWallet: FALSE</p>";
-			
+				
 			$statement = $db->prepare('INSERT INTO wallet(currency_id, quantity, paid_value) VALUES((SELECT id FROM currency WHERE code = :coinCode), :quantity, :paid_value)');
 			$statement->bindValue(':coinCode', $coinCode);
 			$statement->bindValue(':quantity', $quantity);

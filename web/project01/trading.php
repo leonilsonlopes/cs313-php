@@ -47,7 +47,7 @@
 						echo '<tr>
 							<th scope=\"row\">' . $row['code'] . '</th>				
 							<td>' . $row['name'] . '</td>
-							<td>' . currentQuantity . '</td>
+							<td>' . $currentQuantity . '</td>
 							<td>$' . $floatPaidValue . '</td>
 							<td>$' . $floatCurrentPrice . '</td>
 							<td>$' . $floatTotalCurrentValue . '</td>

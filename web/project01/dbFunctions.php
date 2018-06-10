@@ -61,13 +61,19 @@ function saveBuyOrder($coinCode, $price, $quantity){
 		$statement->bindValue(':price', $price);
 		$statement->bindValue(':quantity', $quantity);
 		$statement->bindValue(':total', $totalPaid);
+		
+		echo "<p>dump coinCode: " . var_dump($coinCode) . "</p>";
+		echo "<p>dump price: " . var_dump($price) . "</p>";
+		echo "<p>dump quantity: " . var_dump($quantity) . "</p>";
+		echo "<p>dump totalPaid: " . var_dump($totalPaid) . "</p>";
+		
 		$statement->execute();
 		
 		//Add to wallet
 		updateWallet($coinCode, $quantity, $totalPaid);
 		
 	}catch(Exception $ex){
-		echo "Error while saving buy order: " . $ex;
+		echo "Error while saving buy order: " . var_dump($ex);
 		die();
 	}		
 }

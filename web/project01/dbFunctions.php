@@ -101,10 +101,10 @@ function saveBuyOrder($coinCode, $price, $quantity){
 	$db = get_db();
 	try{	
 		$totalPaid = $price * $quantity;
-		$name = (getCoinFromCurrency($coinCode))['name'];
+		//$name = (getCoinFromCurrency($coinCode))['name'];
 		$statement = $db->prepare('INSERT INTO buy_order(code, name, price, quantity, total) VALUES(:coinCode, :name, :price, :quantity, :total)');
 		$statement->bindValue(':coinCode', $coinCode);
-		$statement->bindValue(':name', $name);
+		//$statement->bindValue(':name', $name);
 		$statement->bindValue(':price', $price);
 		$statement->bindValue(':quantity', $quantity);
 		$statement->bindValue(':total', $totalPaid);

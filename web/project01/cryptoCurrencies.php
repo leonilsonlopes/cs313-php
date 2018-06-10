@@ -95,16 +95,15 @@ $(document).ready(function() {
 					}
 					
 					if($_POST["btnUpdateCoin"] == "updateCoin"){
-						$statement = $db->prepare('UPDATE currency SET code=:coinCode, name=:coinName WHERE id = :coinID');
-						$statement->bindValue(':coinID', $coinID);
+						$statement = $db->prepare('UPDATE currency SET code=:coinCode, name=:coinName WHERE code = :coinCode');
 						$statement->bindValue(':coinCode', $coinCode);
 						$statement->bindValue(':coinName', $coinName);
 						$statement->execute();
 					}
 					
 					if($_POST["btnDeleteCoin"] == "deleteCoin"){
-						$statement = $db->prepare('DELETE FROM currency WHERE id = :coinID');
-						$statement->bindValue(':coinID', $coinID);
+						$statement = $db->prepare('DELETE FROM currency WHERE code = :coinCode');
+						$statement->bindValue(':coinCode', $coinCode);
 						$statement->execute();
 					}		
 							
